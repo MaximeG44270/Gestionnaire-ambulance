@@ -1,0 +1,111 @@
+@font-face {
+  font-family: 'MADECarvingSoftOutlineBlack';
+  src: url('./fonts/MADECarvingSoftOutlinePERSONALUSE-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoftOutline';
+  src: url('./fonts/MADECarvingSoftOutlinePERSONALUSE-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoftOutline';
+  src: url('./fonts/MADECarvingSoftOutlinePERSONALUSE-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoftOutline';
+  src: url('./fonts/MADECarvingSoftOutlinePERSONALUSE-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoftOutline';
+  src: url('./fonts/MADECarvingSoftOutlinePERSONALUSE-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoftOutline';
+  src: url('./fonts/MADECarvingSoftOutlinePERSONALUSE-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoftOutline';
+  src: url('./fonts/MADECarvingSoftOutlinePERSONALUSE-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoftOutline';
+  src: url('./fonts/MADECarvingSoftOutlinePERSONALUSE-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoft-black';
+  src: url('./fonts/MADECarvingSoftPERSONALUSE-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoft-bold';
+  src: url('./fonts/MADECarvingSoftPERSONALUSE-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingExtraLight';
+  src: url('./fonts/MADECarvingSoftPERSONALUSE-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'MADECarvingLight';
+  src: url('./fonts/MADECarvingSoftPERSONALUSE-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingMedium';
+  src: url('./fonts/MADECarvingSoftPERSONALUSE-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoft';
+  src: url('./fonts/MADECarvingSoftPERSONALUSE-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoft-semibold';
+  src: url('./fonts/MADECarvingSoftPERSONALUSE-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADECarvingSoft';
+  src: url('./fonts/MADECarvingSoftPERSONALUSE-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}

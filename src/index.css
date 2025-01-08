@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------- DÉBUT FONTS ------------------------------------------- */
+@import 'fonts.css';
+/* ------------------------------------------- FIN FONTS ------------------------------------------- */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.w-45 {
+  width: 45%;
+}
+
+.bg-login {
+  background-image: url('/public/image/bg-login.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-container-left {
+  background-image: url('/public/image/bg-container-left.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.password-field {
+  -webkit-text-security: square;
+  text-security: square;
+}
+
+.error-message {
+  font-family: 'MADECarvingSoft-semibold';
+  color: red;
+}
+
+.h-90 {
+  height: 90%;
+}
+
+.w-81 {
+  width: 81%;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.H-slidebar {
+  max-height: 100vh;
+    overflow-y: auto;
+}
+
+.burger {
+  position: relative;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.burger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #0f6ca5;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger.open .line-1 {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.burger.open .line-2 {
+  opacity: 0;
+}
+
+.burger.open .line-3 {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+.burger:hover .burger-line {
+  background-color: #0f6ca5;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-custom {
+  scrollbar-width: thin; /* Pour Firefox */
+  scrollbar-color: #0f6ca5 transparent;
+}
+
+/* Styles spécifiques pour Webkit (Chrome, Edge, Safari) */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* ------------------------------------------- DÉBUT BACKGROUND COLOR ------------------------------------------- */
+.bg-BM {
+  background-color: #0f6ca5;
+}
+
+.bg-BL {
+  background-color: #7a94a5;
+}
+/* ------------------------------------------- FIN BACKGROUND COLOR ------------------------------------------- */
+
+/* ------------------------------------------- DÉBUT BOX-SHADOW ------------------------------------------- */
+.box-shadow-left {
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1),
+              0 5px 10px rgba(0, 0, 0, 0.1),
+              -5px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box-shadow-right {
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.1),
+              0 -5px 10px rgba(0, 0, 0, 0.1),
+              0 5px 10px rgba(0, 0, 0, 0.1);
+}
+/* ------------------------------------------- FIN BOX-SHADOW ------------------------------------------- */
+
+/* ------------------------------------------- DÉBUT FONT COLOR ------------------------------------------- */
+.FC-BM {
+  color: #0f6ca5;
+}
+
+.FC-BL {
+  color: #7a94a5;
+}
+/* ------------------------------------------- FIN FONT COLOR ------------------------------------------- */
