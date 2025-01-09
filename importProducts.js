@@ -1,17 +1,56 @@
-import React, { useState } from "react";
-import Stock from "./Stock";
-
-interface Product {
-    name: string;
-    quantity: string;
-    expirationDate: string;
-    label: string;
-    description: string;
-    reference: string;
-    manufacturer: string;
-}
-
-const data: Product[] = [
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var app_1 = require("firebase/app");
+var firestore_1 = require("firebase/firestore");
+var firebaseConfig = {
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
+    measurementId: process.env.REACT_APP_MEASUREMENT_ID
+};
+var app = (0, app_1.initializeApp)(firebaseConfig);
+var db = (0, firestore_1.getFirestore)(app);
+// Données à importer ici dans l'ordre du dessus
+var data = [
     {
         name: "Masque FFP2",
         quantity: "50",
@@ -877,142 +916,70 @@ const data: Product[] = [
         manufacturer: "TraumaCare"
     }
 ];
-
-
-const isExpiringOrExpired = (expirationDate: string): boolean => {
-    const today = new Date();
-    
-    if (expirationDate === "N/A") {
-        return false;
-    }
-
-    const [day, month, year] = expirationDate.split("/");
-    const expiration = new Date(`20${year}-${month}-${day}`);
-
-    const threeMonthsFromNow = new Date();
-    threeMonthsFromNow.setMonth(today.getMonth() + 3);
-
-    return expiration <= threeMonthsFromNow;
-};
-
-const PharmacieStock: React.FC = () => {
-    const [selectedButton, setSelectedButton] = useState<string | null>(null);
-    const [searchQuery, setSearchQuery] = useState<string>("");
-
-    const handleButtonClick = (buttonName: string) => {
-        setSelectedButton(buttonName);
-    };
-
-    const filteredData = data.filter((row) => {
-    if (selectedButton && row.label !== selectedButton) return false;
-    return row.name.toLowerCase().includes(searchQuery.toLowerCase());
-});
-
-    const expiringOrExpiredData = data.filter((row) => isExpiringOrExpired(row.expirationDate));
-
-    return (
-        <div>
-            <div className="flex flex-col md:flex-row w-full">
-{/* ---------------------------------------- BLOCK LEFT ---------------------------------------- */}
-                <div className="w-full overflow-y-auto max-h-80vh scrollbar-hide flex flex-col md:ml-4 md:w-1/2 md:mt-4">
-{/* ---------------------------------------- FIRST BLOCK ---------------------------------------- */}
-                    <div className="w-full flex flex-col items-center md:mt-0">
-                        <p className="items-center text-center text-2xl w-full FC-BM mr-4 p-4 font-carving-black">
-                            Pharmacie sur site
-                        </p>
-                    </div>
-
-{/* ---------------------------------------- THREE BLOCK ---------------------------------------- */}
-                    <div className="w-full flex flex-col justify-center items-center mt-4">
-                        <p className="bg-BM w-full rounded-t-lg h-12 content-center text-xl font-carving-black text-white text-center">
-                            Date de péremption
-                        </p>
-                        <div className="bg-white grid grid-cols-[2fr_1fr_1fr] text-center w-full text-black p-4 font-carving-bold">
-                            <p className="text-left text-gray-500 font-bold">Produits</p>
-                            <p className="text-center text-gray-500 hidden font-bold">Quantité</p>
-                            <p className="text-center text-gray-500 hidden font-bold">Date Péremption</p>
-                        </div>
-                        <div className="bg-white text-center grid w-full text-black rounded-b-lg shadow-lg p-4 max-h-52 overflow-y-auto">
-                            {expiringOrExpiredData.map((row, rowIndex) => (
-                                <div key={`${row.name}-${row.expirationDate}`} className="grid grid-cols-[2fr_1fr_1fr] w-full mb-2">
-                                    <p className="text-left">{row.name}</p>
-                                    <p className="text-center hidden">{row.quantity}</p>
-                                    <p className="text-center hidden">{row.expirationDate}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-{/* ---------------------------------------- FOUR BLOCK ---------------------------------------- */}
-                    <div className="w-full flex flex-col justify-center items-center mt-4">
-                        <div className="w-full flex flex-col justify-center items-center mb-4">
-                            <div className="w-full flex justify-between flex-wrap">
-                                <div className="flex flex-col xl:flex-wrap xl:flex-row w-full xl:gap-y-4">
-                                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 w-full">
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('Soins et pansements')}>Soins et pansements</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.AES')}>K.AES</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.COVID')}>K.COVID</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('Oxygène')}>Oxygène</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.Accouchement')}>K.Accouchement</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.Hémoragie')}>K.Hémoragie</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.Membre')}>K.Membre</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.Brûlure')}>K.Brûlure</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <Stock selectedButton={selectedButton} filteredData={filteredData} />
-                </div>
-
-{/* ---------------------------------------- RIGHT BLOCK ---------------------------------------- */}
-                <div className="w-full flex flex-col mt-8 items-center md:mt-0 md:ml-4 md:w-1/2">
-                    <input
-                        type="text"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Rechercher..."
-                        className="px-4 py-2 border mb-4 md:mt-8 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500 font-carving-semi-bold"
-                    />
-                    
-{/* ---------------------------------------- FIRST BLOCK ---------------------------------------- */}
-                    <p className="bg-BM w-full rounded-t-lg h-12 content-center text-xl lg:mt-2 font-carving-black text-white text-center">
-                        Date de péremption
-                    </p>
-                    <div className="bg-white w-full mb-4 text-black rounded-b-lg shadow-lg p-4 h-52 overflow-y-auto">
-                        <p className="text-left FC-BM font-bold">Description :</p>
-
-                    </div>
-
-{/* ---------------------------------------- SECOND BLOCK ---------------------------------------- */}
-                    <div className="w-full flex justify-between mt-4">
-                        <button className="bg-green-500 text-white px-4 py-2 rounded-lg w-[48%]">
-                            Ajouter
-                        </button>
-                        <button className="bg-red-500 text-white px-4 py-2 rounded-lg w-[48%]">
-                            Retirer
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default PharmacieStock;
+// Fonction pour convertir une date au format "DD/MM/YY" en Date
+function parseDate(dateStr) {
+    if (dateStr === 'N/A')
+        return null;
+    var _a = dateStr.split('/'), day = _a[0], month = _a[1], year = _a[2];
+    if (!day || !month || !year)
+        return null;
+    // Convertit l'année à 2 chiffres en année complète (20XX)
+    var fullYear = 2000 + parseInt(year);
+    return new Date(fullYear, parseInt(month) - 1, parseInt(day));
+}
+// Fonction pour ajouter les données à Firestore
+function addProductsToFirestore(products) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _i, products_1, product, quantity, expiryDate, productData, err_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _i = 0, products_1 = products;
+                    _a.label = 1;
+                case 1:
+                    if (!(_i < products_1.length)) return [3 /*break*/, 6];
+                    product = products_1[_i];
+                    _a.label = 2;
+                case 2:
+                    _a.trys.push([2, 4, , 5]);
+                    quantity = parseInt(product.quantity);
+                    if (isNaN(quantity)) {
+                        console.error("Quantit\u00E9 invalide pour ".concat(product.name, ", ignor\u00E9"));
+                        return [3 /*break*/, 5];
+                    }
+                    expiryDate = parseDate(product.expirationDate);
+                    productData = {
+                        productName: product.name,
+                        quantity: quantity,
+                        label: product.label,
+                        description: product.description,
+                        reference: product.reference,
+                        manufacturer: product.manufacturer,
+                        createdAt: firestore_1.Timestamp.now()
+                    };
+                    // Ajoute expiryDate uniquement si elle est valide
+                    if (expiryDate) {
+                        productData.expiryDate = firestore_1.Timestamp.fromDate(expiryDate);
+                    }
+                    console.log("Données envoyées à Firestore :", productData);
+                    console.log("Vérification quantité :", product.quantity, "Convertie :", quantity);
+                    // Ajoute le document
+                    return [4 /*yield*/, (0, firestore_1.addDoc)((0, firestore_1.collection)(db, 'products'), productData)];
+                case 3:
+                    // Ajoute le document
+                    _a.sent();
+                    console.log("Produit ".concat(product.name, " ajout\u00E9 avec succ\u00E8s !"));
+                    return [3 /*break*/, 5];
+                case 4:
+                    err_1 = _a.sent();
+                    console.error("Erreur lors de l'ajout du produit ".concat(product.name, ":"), err_1);
+                    return [3 /*break*/, 5];
+                case 5:
+                    _i++;
+                    return [3 /*break*/, 1];
+                case 6: return [2 /*return*/];
+            }
+        });
+    });
+}
+addProductsToFirestore(data);

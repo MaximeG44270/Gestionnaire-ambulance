@@ -1,6 +1,14 @@
 import React from "react";
 
-type Product = [string, string, string, string];
+interface Product {
+    name: string;
+    quantity: string;
+    expirationDate: string;
+    label: string;
+    description: string;
+    reference: string;
+    manufacturer: string;
+}
 
 interface StockProps {
     selectedButton: string | null;
@@ -22,10 +30,10 @@ const Stock: React.FC<StockProps> = ({ selectedButton, filteredData }) => {
                             <p className="font-bold text-center">Date de péremption</p>
                         </div>
                         {filteredData.map((row, rowIndex) => (
-                            <div key={`${row[0]}-${row[2]}`} className="grid grid-cols-[2fr_1fr_1fr] w-full mb-2">
-                                <p className="text-left">{row[0]}</p>
-                                <p className="text-center">{row[1]}</p>
-                                <p className="text-center">{row[2]}</p>
+                            <div key={`${row.name}-${row.expirationDate}`} className="grid grid-cols-[2fr_1fr_1fr] w-full mb-2">
+                                <p className="text-left">{row.name}</p>
+                                <p className="text-center">{row.quantity}</p>
+                                <p className="text-center">{row.expirationDate}</p>
                             </div>
                         ))}
                     </div>

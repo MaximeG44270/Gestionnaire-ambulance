@@ -1,19 +1,34 @@
-import React, { useState } from "react";
-import Stock from "./Stock";
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc, Timestamp } from 'firebase/firestore';
 
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Interface pour les produits
 interface Product {
-    name: string;
-    quantity: string;
-    expirationDate: string;
-    label: string;
-    description: string;
-    reference: string;
-    manufacturer: string;
+  productName: string;
+  quantity: string;
+  expirationDate: string;
+  label: string;
+  description: string;
+  reference: string;
+  manufacturer: string;
 }
 
+// Données à importer ici dans l'ordre du dessus
 const data: Product[] = [
     {
-        name: "Masque FFP2",
+        productName: "Masque FFP2",
         quantity: "50",
         expirationDate: "01/06/25",
         label: "Oxygène",
@@ -22,7 +37,7 @@ const data: Product[] = [
         manufacturer: "ProtecMed"
     },
     {
-        name: "Gel hydroalcoolique",
+        productName: "Gel hydroalcoolique",
         quantity: "120",
         expirationDate: "12/12/24",
         label: "K.AES",
@@ -31,7 +46,7 @@ const data: Product[] = [
         manufacturer: "CleanHands"
     },
     {
-        name: "Gants latex",
+        productName: "Gants latex",
         quantity: "200",
         expirationDate: "01/03/25",
         label: "K.COVID",
@@ -40,7 +55,7 @@ const data: Product[] = [
         manufacturer: "MedGloves"
     },
     {
-        name: "Stéthoscope",
+        productName: "Stéthoscope",
         quantity: "15",
         expirationDate: "N/A",
         label: "Soins et pansements",
@@ -49,7 +64,7 @@ const data: Product[] = [
         manufacturer: "MedInstruments"
     },
     {
-        name: "Thermomètre",
+        productName: "Thermomètre",
         quantity: "30",
         expirationDate: "02/07/25",
         label: "K.Accouchement",
@@ -58,7 +73,7 @@ const data: Product[] = [
         manufacturer: "TempCheck"
     },
     {
-        name: "Bande de gaze",
+        productName: "Bande de gaze",
         quantity: "150",
         expirationDate: "09/09/25",
         label: "K.Hémoragie",
@@ -67,7 +82,7 @@ const data: Product[] = [
         manufacturer: "WoundCare"
     },
     {
-        name: "Oxygène médical",
+        productName: "Oxygène médical",
         quantity: "20",
         expirationDate: "N/A",
         label: "K.Membre",
@@ -76,7 +91,7 @@ const data: Product[] = [
         manufacturer: "OxyCare"
     },
     {
-        name: "Bandage élastique",
+        productName: "Bandage élastique",
         quantity: "80",
         expirationDate: "10/11/25",
         label: "K.Brûlure",
@@ -85,7 +100,7 @@ const data: Product[] = [
         manufacturer: "ElasticBand"
     },
     {
-        name: "Bouteille désinfectante",
+        productName: "Bouteille désinfectante",
         quantity: "100",
         expirationDate: "05/12/25",
         label: "Oxygène",
@@ -94,7 +109,7 @@ const data: Product[] = [
         manufacturer: "CleanSol"
     },
     {
-        name: "Seringue",
+        productName: "Seringue",
         quantity: "500",
         expirationDate: "04/08/25",
         label: "K.AES",
@@ -103,7 +118,7 @@ const data: Product[] = [
         manufacturer: "InjectMed"
     },
     {
-        name: "Comprimés de Paracétamol",
+        productName: "Comprimés de Paracétamol",
         quantity: "1000",
         expirationDate: "05/01/26",
         label: "K.COVID",
@@ -112,7 +127,7 @@ const data: Product[] = [
         manufacturer: "PainRelief"
     },
     {
-        name: "Antibiotique",
+        productName: "Antibiotique",
         quantity: "250",
         expirationDate: "11/11/25",
         label: "Soins et pansements",
@@ -121,7 +136,7 @@ const data: Product[] = [
         manufacturer: "BactFight"
     },
     {
-        name: "Masque chirurgical",
+        productName: "Masque chirurgical",
         quantity: "200",
         expirationDate: "15/04/25",
         label: "K.Accouchement",
@@ -130,7 +145,7 @@ const data: Product[] = [
         manufacturer: "SurgMask"
     },
     {
-        name: "Pansement adhésif",
+        productName: "Pansement adhésif",
         quantity: "350",
         expirationDate: "06/06/25",
         label: "K.Hémoragie",
@@ -139,7 +154,7 @@ const data: Product[] = [
         manufacturer: "AdhesiveCare"
     },
     {
-        name: "Gants de chirurgie",
+        productName: "Gants de chirurgie",
         quantity: "70",
         expirationDate: "15/10/25",
         label: "K.Membre",
@@ -148,7 +163,7 @@ const data: Product[] = [
         manufacturer: "SurgGloves"
     },
     {
-        name: "Antiseptique",
+        productName: "Antiseptique",
         quantity: "180",
         expirationDate: "11/09/25",
         label: "K.Brûlure",
@@ -157,7 +172,7 @@ const data: Product[] = [
         manufacturer: "CleanWound"
     },
     {
-        name: "Seringues 10 ml",
+        productName: "Seringues 10 ml",
         quantity: "400",
         expirationDate: "07/03/25",
         label: "Oxygène",
@@ -166,7 +181,7 @@ const data: Product[] = [
         manufacturer: "InjectMed"
     },
     {
-        name: "Masque de protection",
+        productName: "Masque de protection",
         quantity: "120",
         expirationDate: "01/05/25",
         label: "K.AES",
@@ -175,7 +190,7 @@ const data: Product[] = [
         manufacturer: "ProtecMed"
     },
     {
-        name: "Gants non stériles",
+        productName: "Gants non stériles",
         quantity: "250",
         expirationDate: "01/09/25",
         label: "K.COVID",
@@ -184,7 +199,7 @@ const data: Product[] = [
         manufacturer: "MedGloves"
     },
     {
-        name: "Stérilisateur",
+        productName: "Stérilisateur",
         quantity: "5",
         expirationDate: "N/A",
         label: "Soins et pansements",
@@ -193,7 +208,7 @@ const data: Product[] = [
         manufacturer: "SterilMed"
     },
     {
-        name: "Thermomètre sans contact",
+        productName: "Thermomètre sans contact",
         quantity: "40",
         expirationDate: "01/02/25",
         label: "K.Accouchement",
@@ -202,7 +217,7 @@ const data: Product[] = [
         manufacturer: "TempCheck"
     },
     {
-        name: "Pansement hydrocolloïde",
+        productName: "Pansement hydrocolloïde",
         quantity: "60",
         expirationDate: "15/06/25",
         label: "K.Hémoragie",
@@ -211,7 +226,7 @@ const data: Product[] = [
         manufacturer: "WoundCare"
     },
     {
-        name: "Gants chirurgicaux",
+        productName: "Gants chirurgicaux",
         quantity: "100",
         expirationDate: "25/10/25",
         label: "K.Membre",
@@ -220,7 +235,7 @@ const data: Product[] = [
         manufacturer: "SurgGloves"
     },
     {
-        name: "Bandages compressifs",
+        productName: "Bandages compressifs",
         quantity: "90",
         expirationDate: "13/08/25",
         label: "K.Brûlure",
@@ -229,7 +244,7 @@ const data: Product[] = [
         manufacturer: "CompressCare"
     },
     {
-        name: "Savon antiseptique",
+        productName: "Savon antiseptique",
         quantity: "200",
         expirationDate: "12/05/25",
         label: "Oxygène",
@@ -238,7 +253,7 @@ const data: Product[] = [
         manufacturer: "CleanHands"
     },
     {
-        name: "Bouteille de gel désinfectant",
+        productName: "Bouteille de gel désinfectant",
         quantity: "75",
         expirationDate: "01/04/25",
         label: "K.AES",
@@ -247,7 +262,7 @@ const data: Product[] = [
         manufacturer: "CleanHands"
     },
     {
-        name: "Flacon de solution saline",
+        productName: "Flacon de solution saline",
         quantity: "50",
         expirationDate: "03/12/25",
         label: "K.COVID",
@@ -256,7 +271,7 @@ const data: Product[] = [
         manufacturer: "SalineSol"
     },
     {
-        name: "Sutures",
+        productName: "Sutures",
         quantity: "250",
         expirationDate: "25/07/25",
         label: "Soins et pansements",
@@ -265,7 +280,7 @@ const data: Product[] = [
         manufacturer: "SurgSuture"
     },
     {
-        name: "Bande cohésive",
+        productName: "Bande cohésive",
         quantity: "150",
         expirationDate: "30/11/25",
         label: "K.Accouchement",
@@ -274,7 +289,7 @@ const data: Product[] = [
         manufacturer: "CohesiveBand"
     },
     {
-        name: "Compresses stériles",
+        productName: "Compresses stériles",
         quantity: "500",
         expirationDate: "20/05/25",
         label: "K.Hémoragie",
@@ -283,7 +298,7 @@ const data: Product[] = [
         manufacturer: "WoundCare"
     },
     {
-        name: "Thermomètre médical",
+        productName: "Thermomètre médical",
         quantity: "35",
         expirationDate: "08/01/25",
         label: "K.Membre",
@@ -292,7 +307,7 @@ const data: Product[] = [
         manufacturer: "TempCheck"
     },
     {
-        name: "Aiguilles à injecter",
+        productName: "Aiguilles à injecter",
         quantity: "800",
         expirationDate: "15/03/25",
         label: "K.Brûlure",
@@ -301,7 +316,7 @@ const data: Product[] = [
         manufacturer: "InjectMed"
     },
     {
-        name: "Spirales contraceptives",
+        productName: "Spirales contraceptives",
         quantity: "50",
         expirationDate: "02/10/25",
         label: "Oxygène",
@@ -310,7 +325,7 @@ const data: Product[] = [
         manufacturer: "ContraceptCare"
     },
     {
-        name: "Lames de scalpel",
+        productName: "Lames de scalpel",
         quantity: "100",
         expirationDate: "06/06/25",
         label: "K.AES",
@@ -319,7 +334,7 @@ const data: Product[] = [
         manufacturer: "SurgScalpel"
     },
     {
-        name: "Aérosol médical",
+        productName: "Aérosol médical",
         quantity: "30",
         expirationDate: "12/08/25",
         label: "K.COVID",
@@ -328,7 +343,7 @@ const data: Product[] = [
         manufacturer: "AeroMed"
     },
     {
-        name: "Antibiotiques en crème",
+        productName: "Antibiotiques en crème",
         quantity: "150",
         expirationDate: "19/05/25",
         label: "Soins et pansements",
@@ -337,7 +352,7 @@ const data: Product[] = [
         manufacturer: "BactFight"
     },
     {
-        name: "Savon antiseptique liquide",
+        productName: "Savon antiseptique liquide",
         quantity: "300",
         expirationDate: "18/09/25",
         label: "K.Accouchement",
@@ -346,7 +361,7 @@ const data: Product[] = [
         manufacturer: "CleanHands"
     },
     {
-        name: "Pansement pour brûlures",
+        productName: "Pansement pour brûlures",
         quantity: "80",
         expirationDate: "14/07/25",
         label: "K.Hémoragie",
@@ -355,7 +370,7 @@ const data: Product[] = [
         manufacturer: "BurnCare"
     },
     {
-        name: "Kits de premiers secours",
+        productName: "Kits de premiers secours",
         quantity: "20",
         expirationDate: "N/A",
         label: "K.Membre",
@@ -364,7 +379,7 @@ const data: Product[] = [
         manufacturer: "FirstAidKit"
     },
     {
-        name: "Gants en nitrile",
+        productName: "Gants en nitrile",
         quantity: "400",
         expirationDate: "22/02/25",
         label: "K.Brûlure",
@@ -373,7 +388,7 @@ const data: Product[] = [
         manufacturer: "MedGloves"
     },
     {
-        name: "Compresses gazeuses",
+        productName: "Compresses gazeuses",
         quantity: "200",
         expirationDate: "25/09/25",
         label: "Oxygène",
@@ -382,7 +397,7 @@ const data: Product[] = [
         manufacturer: "WoundCare"
     },
     {
-        name: "Lentilles de contact",
+        productName: "Lentilles de contact",
         quantity: "100",
         expirationDate: "03/01/26",
         label: "K.AES",
@@ -391,7 +406,7 @@ const data: Product[] = [
         manufacturer: "VisionCare"
     },
     {
-        name: "Spray antiseptique",
+        productName: "Spray antiseptique",
         quantity: "50",
         expirationDate: "05/06/25",
         label: "K.COVID",
@@ -400,7 +415,7 @@ const data: Product[] = [
         manufacturer: "CleanSol"
     },
     {
-        name: "Kit d'hygiène buccale",
+        productName: "Kit d'hygiène buccale",
         quantity: "80",
         expirationDate: "11/12/25",
         label: "Soins et pansements",
@@ -409,7 +424,7 @@ const data: Product[] = [
         manufacturer: "OralCare"
     },
     {
-        name: "Pansement pour ampoules",
+        productName: "Pansement pour ampoules",
         quantity: "120",
         expirationDate: "09/01/25",
         label: "K.Accouchement",
@@ -418,7 +433,7 @@ const data: Product[] = [
         manufacturer: "BlisterCare"
     },
     {
-        name: "Lubrifiant médical",
+        productName: "Lubrifiant médical",
         quantity: "60",
         expirationDate: "21/10/25",
         label: "K.Hémoragie",
@@ -427,7 +442,7 @@ const data: Product[] = [
         manufacturer: "MedLube"
     },
     {
-        name: "Pansement pour coupures",
+        productName: "Pansement pour coupures",
         quantity: "150",
         expirationDate: "04/02/25",
         label: "K.Membre",
@@ -436,7 +451,7 @@ const data: Product[] = [
         manufacturer: "CutCare"
     },
     {
-        name: "Bande de compression",
+        productName: "Bande de compression",
         quantity: "100",
         expirationDate: "18/07/25",
         label: "K.Brûlure",
@@ -445,7 +460,7 @@ const data: Product[] = [
         manufacturer: "CompressCare"
     },
     {
-        name: "Ciseaux médicaux",
+        productName: "Ciseaux médicaux",
         quantity: "30",
         expirationDate: "N/A",
         label: "Oxygène",
@@ -454,7 +469,7 @@ const data: Product[] = [
         manufacturer: "MedInstruments"
     },
     {
-        name: "Thermomètre infrarouge",
+        productName: "Thermomètre infrarouge",
         quantity: "45",
         expirationDate: "15/05/25",
         label: "K.AES",
@@ -463,7 +478,7 @@ const data: Product[] = [
         manufacturer: "TempCheck"
     },
     {
-        name: "Aiguilles de suture",
+        productName: "Aiguilles de suture",
         quantity: "300",
         expirationDate: "02/04/25",
         label: "K.COVID",
@@ -472,7 +487,7 @@ const data: Product[] = [
         manufacturer: "SurgSuture"
     },
     {
-        name: "Patchs de froid",
+        productName: "Patchs de froid",
         quantity: "200",
         expirationDate: "27/11/25",
         label: "Soins et pansements",
@@ -481,7 +496,7 @@ const data: Product[] = [
         manufacturer: "ColdPatch"
     },
     {
-        name: "Tensio-mètre",
+        productName: "Tensio-mètre",
         quantity: "60",
         expirationDate: "09/08/25",
         label: "K.Accouchement",
@@ -490,7 +505,7 @@ const data: Product[] = [
         manufacturer: "BloodPressure"
     },
     {
-        name: "Masque chirurgical jetable",
+        productName: "Masque chirurgical jetable",
         quantity: "350",
         expirationDate: "28/05/25",
         label: "K.Hémoragie",
@@ -499,7 +514,7 @@ const data: Product[] = [
         manufacturer: "SurgMask"
     },
     {
-        name: "Système d'aspiration",
+        productName: "Système d'aspiration",
         quantity: "5",
         expirationDate: "N/A",
         label: "K.Membre",
@@ -508,7 +523,7 @@ const data: Product[] = [
         manufacturer: "MedAspiration"
     },
     {
-        name: "Pansements pour plaies",
+        productName: "Pansements pour plaies",
         quantity: "500",
         expirationDate: "03/12/25",
         label: "K.Brûlure",
@@ -517,7 +532,7 @@ const data: Product[] = [
         manufacturer: "WoundCare"
     },
     {
-        name: "Aérosol pour inhalation",
+        productName: "Aérosol pour inhalation",
         quantity: "80",
         expirationDate: "17/09/25",
         label: "Oxygène",
@@ -526,7 +541,7 @@ const data: Product[] = [
         manufacturer: "AeroMed"
     },
     {
-        name: "Bande de fixation",
+        productName: "Bande de fixation",
         quantity: "250",
         expirationDate: "06/03/25",
         label: "K.AES",
@@ -535,7 +550,7 @@ const data: Product[] = [
         manufacturer: "AdhesiveCare"
     },
     {
-        name: "Pince chirurgicale",
+        productName: "Pince chirurgicale",
         quantity: "100",
         expirationDate: "15/10/25",
         label: "K.COVID",
@@ -544,7 +559,7 @@ const data: Product[] = [
         manufacturer: "SurgInstruments"
     },
     {
-        name: "Stérilisateurs à vapeur",
+        productName: "Stérilisateurs à vapeur",
         quantity: "10",
         expirationDate: "N/A",
         label: "Soins et pansements",
@@ -553,7 +568,7 @@ const data: Product[] = [
         manufacturer: "SterilMed"
     },
     {
-        name: "Détergent médical",
+        productName: "Détergent médical",
         quantity: "150",
         expirationDate: "30/06/25",
         label: "K.Accouchement",
@@ -562,7 +577,7 @@ const data: Product[] = [
         manufacturer: "MedClean"
     },
     {
-        name: "Kit d'urgence",
+        productName: "Kit d'urgence",
         quantity: "20",
         expirationDate: "N/A",
         label: "K.Hémoragie",
@@ -571,7 +586,7 @@ const data: Product[] = [
         manufacturer: "EmergencyKit"
     },
     {
-        name: "Plastiques pour plaies",
+        productName: "Plastiques pour plaies",
         quantity: "180",
         expirationDate: "23/07/25",
         label: "K.Membre",
@@ -580,7 +595,7 @@ const data: Product[] = [
         manufacturer: "WoundCare"
     },
     {
-        name: "Trousse de premiers secours",
+        productName: "Trousse de premiers secours",
         quantity: "50",
         expirationDate: "N/A",
         label: "K.Brûlure",
@@ -589,7 +604,7 @@ const data: Product[] = [
         manufacturer: "FirstAidKit"
     },
     {
-        name: "Gel anesthésiant",
+        productName: "Gel anesthésiant",
         quantity: "60",
         expirationDate: "05/02/25",
         label: "Oxygène",
@@ -598,7 +613,7 @@ const data: Product[] = [
         manufacturer: "PainRelief"
     },
     {
-        name: "Lampe de poche médicale",
+        productName: "Lampe de poche médicale",
         quantity: "70",
         expirationDate: "N/A",
         label: "K.AES",
@@ -607,7 +622,7 @@ const data: Product[] = [
         manufacturer: "MedLight"
     },
     {
-        name: "Tablettes de magnésium",
+        productName: "Tablettes de magnésium",
         quantity: "1000",
         expirationDate: "12/11/25",
         label: "K.COVID",
@@ -616,7 +631,7 @@ const data: Product[] = [
         manufacturer: "MagnesiumPlus"
     },
     {
-        name: "Pommade antibactérienne",
+        productName: "Pommade antibactérienne",
         quantity: "150",
         expirationDate: "30/04/25",
         label: "Soins et pansements",
@@ -625,7 +640,7 @@ const data: Product[] = [
         manufacturer: "BactFight"
     },
     {
-        name: "Bande de fixation élastique",
+        productName: "Bande de fixation élastique",
         quantity: "200",
         expirationDate: "02/08/25",
         label: "K.Accouchement",
@@ -634,7 +649,7 @@ const data: Product[] = [
         manufacturer: "ElasticBand"
     },
     {
-        name: "Cicatrisation rapide",
+        productName: "Cicatrisation rapide",
         quantity: "120",
         expirationDate: "20/09/25",
         label: "K.Hémoragie",
@@ -643,7 +658,7 @@ const data: Product[] = [
         manufacturer: "WoundCare"
     },
     {
-        name: "Lance à perfusion",
+        productName: "Lance à perfusion",
         quantity: "50",
         expirationDate: "N/A",
         label: "K.Membre",
@@ -652,7 +667,7 @@ const data: Product[] = [
         manufacturer: "PerfusionMed"
     },
     {
-        name: "Bande cohésive absorbante",
+        productName: "Bande cohésive absorbante",
         quantity: "150",
         expirationDate: "01/03/25",
         label: "K.Brûlure",
@@ -661,7 +676,7 @@ const data: Product[] = [
         manufacturer: "CohesiveBand"
     },
     {
-        name: "Tampons hémostatiques",
+        productName: "Tampons hémostatiques",
         quantity: "100",
         expirationDate: "15/06/25",
         label: "Oxygène",
@@ -670,7 +685,7 @@ const data: Product[] = [
         manufacturer: "HemoStop"
     },
     {
-        name: "Solution de lavage oculaire",
+        productName: "Solution de lavage oculaire",
         quantity: "80",
         expirationDate: "23/05/25",
         label: "K.AES",
@@ -679,7 +694,7 @@ const data: Product[] = [
         manufacturer: "EyeCare"
     },
     {
-        name: "Gants de protection",
+        productName: "Gants de protection",
         quantity: "400",
         expirationDate: "12/07/25",
         label: "K.COVID",
@@ -688,7 +703,7 @@ const data: Product[] = [
         manufacturer: "MedGloves"
     },
     {
-        name: "Plâtre médical",
+        productName: "Plâtre médical",
         quantity: "100",
         expirationDate: "14/04/25",
         label: "Soins et pansements",
@@ -697,7 +712,7 @@ const data: Product[] = [
         manufacturer: "CastCare"
     },
     {
-        name: "Pansement pour fractures",
+        productName: "Pansement pour fractures",
         quantity: "50",
         expirationDate: "01/10/25",
         label: "K.Accouchement",
@@ -706,7 +721,7 @@ const data: Product[] = [
         manufacturer: "FractureCare"
     },
     {
-        name: "Pistolet à injection",
+        productName: "Pistolet à injection",
         quantity: "30",
         expirationDate: "N/A",
         label: "K.Hémoragie",
@@ -715,7 +730,7 @@ const data: Product[] = [
         manufacturer: "InjectMed"
     },
     {
-        name: "Bandages de sport",
+        productName: "Bandages de sport",
         quantity: "200",
         expirationDate: "22/03/25",
         label: "K.Membre",
@@ -724,7 +739,7 @@ const data: Product[] = [
         manufacturer: "SportCare"
     },
     {
-        name: "Coton-tiges médicaux",
+        productName: "Coton-tiges médicaux",
         quantity: "500",
         expirationDate: "N/A",
         label: "K.Brûlure",
@@ -733,7 +748,7 @@ const data: Product[] = [
         manufacturer: "MedCotton"
     },
     {
-        name: "Tensiomètre électronique",
+        productName: "Tensiomètre électronique",
         quantity: "40",
         expirationDate: "11/11/25",
         label: "Oxygène",
@@ -742,7 +757,7 @@ const data: Product[] = [
         manufacturer: "BloodPressure"
     },
     {
-        name: "Masque respiratoire",
+        productName: "Masque respiratoire",
         quantity: "300",
         expirationDate: "28/02/25",
         label: "K.AES",
@@ -751,7 +766,7 @@ const data: Product[] = [
         manufacturer: "RespMask"
     },
     {
-        name: "Coussins chauffants",
+        productName: "Coussins chauffants",
         quantity: "50",
         expirationDate: "03/09/25",
         label: "K.COVID",
@@ -760,7 +775,7 @@ const data: Product[] = [
         manufacturer: "HeatCare"
     },
     {
-        name: "Bande de compression médicale",
+        productName: "Bande de compression médicale",
         quantity: "150",
         expirationDate: "21/06/25",
         label: "Soins et pansements",
@@ -769,7 +784,7 @@ const data: Product[] = [
         manufacturer: "CompressCare"
     },
     {
-        name: "Patchs chauffants",
+        productName: "Patchs chauffants",
         quantity: "200",
         expirationDate: "12/12/25",
         label: "K.Accouchement",
@@ -778,7 +793,7 @@ const data: Product[] = [
         manufacturer: "HeatPatch"
     },
     {
-        name: "Solution désinfectante",
+        productName: "Solution désinfectante",
         quantity: "500",
         expirationDate: "25/05/25",
         label: "K.Hémoragie",
@@ -787,7 +802,7 @@ const data: Product[] = [
         manufacturer: "CleanSol"
     },
     {
-        name: "Désinfectant pour surfaces",
+        productName: "Désinfectant pour surfaces",
         quantity: "100",
         expirationDate: "N/A",
         label: "K.Membre",
@@ -796,7 +811,7 @@ const data: Product[] = [
         manufacturer: "SurfaceClean"
     },
     {
-        name: "Seringue sans aiguille",
+        productName: "Seringue sans aiguille",
         quantity: "300",
         expirationDate: "05/01/26",
         label: "K.Brûlure",
@@ -805,7 +820,7 @@ const data: Product[] = [
         manufacturer: "InjectMed"
     },
     {
-        name: "Bande d'immobilisation",
+        productName: "Bande d'immobilisation",
         quantity: "100",
         expirationDate: "30/07/25",
         label: "Oxygène",
@@ -814,7 +829,7 @@ const data: Product[] = [
         manufacturer: "ImmobilCare"
     },
     {
-        name: "Kit de réanimation",
+        productName: "Kit de réanimation",
         quantity: "10",
         expirationDate: "N/A",
         label: "K.AES",
@@ -823,7 +838,7 @@ const data: Product[] = [
         manufacturer: "ReanimationKit"
     },
     {
-        name: "Chiffons médicaux",
+        productName: "Chiffons médicaux",
         quantity: "200",
         expirationDate: "10/09/25",
         label: "K.COVID",
@@ -832,7 +847,7 @@ const data: Product[] = [
         manufacturer: "MedCloth"
     },
     {
-        name: "Crème réparatrice",
+        productName: "Crème réparatrice",
         quantity: "100",
         expirationDate: "17/11/25",
         label: "Soins et pansements",
@@ -841,7 +856,7 @@ const data: Product[] = [
         manufacturer: "SkinCare"
     },
     {
-        name: "Gants pour examen médical",
+        productName: "Gants pour examen médical",
         quantity: "300",
         expirationDate: "04/02/25",
         label: "K.Accouchement",
@@ -850,7 +865,7 @@ const data: Product[] = [
         manufacturer: "MedGloves"
     },
     {
-        name: "Soluté pour perfusion",
+        productName: "Soluté pour perfusion",
         quantity: "50",
         expirationDate: "N/A",
         label: "K.Hémoragie",
@@ -859,7 +874,7 @@ const data: Product[] = [
         manufacturer: "PerfusionSol"
     },
     {
-        name: "Pansement anti-UV",
+        productName: "Pansement anti-UV",
         quantity: "60",
         expirationDate: "03/06/25",
         label: "K.Membre",
@@ -868,7 +883,7 @@ const data: Product[] = [
         manufacturer: "UVProtect"
     },
     {
-        name: "Pansements pour traumatismes",
+        productName: "Pansements pour traumatismes",
         quantity: "150",
         expirationDate: "12/07/25",
         label: "K.Brûlure",
@@ -878,141 +893,59 @@ const data: Product[] = [
     }
 ];
 
+// Fonction pour convertir une date au format "DD/MM/YY" en Date
+function parseDate(dateStr: string): Date | null {
+  if (dateStr === 'N/A') return null;
+  
+  const [day, month, year] = dateStr.split('/');
+  if (!day || !month || !year) return null;
+  
+  // Convertit l'année à 2 chiffres en année complète (20XX)
+  const fullYear = 2000 + parseInt(year);
+  
+  return new Date(fullYear, parseInt(month) - 1, parseInt(day));
+}
 
-const isExpiringOrExpired = (expirationDate: string): boolean => {
-    const today = new Date();
-    
-    if (expirationDate === "N/A") {
-        return false;
+// Fonction pour ajouter les données à Firestore
+async function addProductsToFirestore(products: Product[]) {
+  for (const product of products) {
+    try {
+      const quantity = parseInt(product.quantity);
+      if (isNaN(quantity)) {
+        console.error(`Quantité invalide pour ${product.productName}, ignoré`);
+        continue;
+      }
+
+      // Gère la date d'expiration
+      const expiryDate = parseDate(product.expirationDate);
+
+      // Prépare l'objet à enregistrer
+      const productData: any = {
+        productName: product.productName,
+        quantity: quantity,
+        label: product.label,
+        description: product.description,
+        reference: product.reference,
+        manufacturer: product.manufacturer,
+        createdAt: Timestamp.now()
+      };
+
+      // Ajoute expiryDate uniquement si elle est valide
+      if (expiryDate) {
+        productData.expiryDate = Timestamp.fromDate(expiryDate);
+      }
+
+      console.log("Données envoyées à Firestore :", productData);
+      console.log("Vérification quantité :", product.quantity, "Convertie :", quantity);
+
+
+      // Ajoute le document
+      await addDoc(collection(db, 'products'), productData);
+      console.log(`Produit ${product.productName} ajouté avec succès !`);
+    } catch (err) {
+      console.error(`Erreur lors de l'ajout du produit ${product.productName}:`, err);
     }
+  }
+}
 
-    const [day, month, year] = expirationDate.split("/");
-    const expiration = new Date(`20${year}-${month}-${day}`);
-
-    const threeMonthsFromNow = new Date();
-    threeMonthsFromNow.setMonth(today.getMonth() + 3);
-
-    return expiration <= threeMonthsFromNow;
-};
-
-const PharmacieStock: React.FC = () => {
-    const [selectedButton, setSelectedButton] = useState<string | null>(null);
-    const [searchQuery, setSearchQuery] = useState<string>("");
-
-    const handleButtonClick = (buttonName: string) => {
-        setSelectedButton(buttonName);
-    };
-
-    const filteredData = data.filter((row) => {
-    if (selectedButton && row.label !== selectedButton) return false;
-    return row.name.toLowerCase().includes(searchQuery.toLowerCase());
-});
-
-    const expiringOrExpiredData = data.filter((row) => isExpiringOrExpired(row.expirationDate));
-
-    return (
-        <div>
-            <div className="flex flex-col md:flex-row w-full">
-{/* ---------------------------------------- BLOCK LEFT ---------------------------------------- */}
-                <div className="w-full overflow-y-auto max-h-80vh scrollbar-hide flex flex-col md:ml-4 md:w-1/2 md:mt-4">
-{/* ---------------------------------------- FIRST BLOCK ---------------------------------------- */}
-                    <div className="w-full flex flex-col items-center md:mt-0">
-                        <p className="items-center text-center text-2xl w-full FC-BM mr-4 p-4 font-carving-black">
-                            Pharmacie sur site
-                        </p>
-                    </div>
-
-{/* ---------------------------------------- THREE BLOCK ---------------------------------------- */}
-                    <div className="w-full flex flex-col justify-center items-center mt-4">
-                        <p className="bg-BM w-full rounded-t-lg h-12 content-center text-xl font-carving-black text-white text-center">
-                            Date de péremption
-                        </p>
-                        <div className="bg-white grid grid-cols-[2fr_1fr_1fr] text-center w-full text-black p-4 font-carving-bold">
-                            <p className="text-left text-gray-500 font-bold">Produits</p>
-                            <p className="text-center text-gray-500 hidden font-bold">Quantité</p>
-                            <p className="text-center text-gray-500 hidden font-bold">Date Péremption</p>
-                        </div>
-                        <div className="bg-white text-center grid w-full text-black rounded-b-lg shadow-lg p-4 max-h-52 overflow-y-auto">
-                            {expiringOrExpiredData.map((row, rowIndex) => (
-                                <div key={`${row.name}-${row.expirationDate}`} className="grid grid-cols-[2fr_1fr_1fr] w-full mb-2">
-                                    <p className="text-left">{row.name}</p>
-                                    <p className="text-center hidden">{row.quantity}</p>
-                                    <p className="text-center hidden">{row.expirationDate}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-{/* ---------------------------------------- FOUR BLOCK ---------------------------------------- */}
-                    <div className="w-full flex flex-col justify-center items-center mt-4">
-                        <div className="w-full flex flex-col justify-center items-center mb-4">
-                            <div className="w-full flex justify-between flex-wrap">
-                                <div className="flex flex-col xl:flex-wrap xl:flex-row w-full xl:gap-y-4">
-                                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 w-full">
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('Soins et pansements')}>Soins et pansements</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.AES')}>K.AES</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.COVID')}>K.COVID</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('Oxygène')}>Oxygène</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.Accouchement')}>K.Accouchement</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.Hémoragie')}>K.Hémoragie</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.Membre')}>K.Membre</button>
-                                      <button
-                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                        onClick={() => handleButtonClick('K.Brûlure')}>K.Brûlure</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <Stock selectedButton={selectedButton} filteredData={filteredData} />
-                </div>
-
-{/* ---------------------------------------- RIGHT BLOCK ---------------------------------------- */}
-                <div className="w-full flex flex-col mt-8 items-center md:mt-0 md:ml-4 md:w-1/2">
-                    <input
-                        type="text"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Rechercher..."
-                        className="px-4 py-2 border mb-4 md:mt-8 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500 font-carving-semi-bold"
-                    />
-                    
-{/* ---------------------------------------- FIRST BLOCK ---------------------------------------- */}
-                    <p className="bg-BM w-full rounded-t-lg h-12 content-center text-xl lg:mt-2 font-carving-black text-white text-center">
-                        Date de péremption
-                    </p>
-                    <div className="bg-white w-full mb-4 text-black rounded-b-lg shadow-lg p-4 h-52 overflow-y-auto">
-                        <p className="text-left FC-BM font-bold">Description :</p>
-
-                    </div>
-
-{/* ---------------------------------------- SECOND BLOCK ---------------------------------------- */}
-                    <div className="w-full flex justify-between mt-4">
-                        <button className="bg-green-500 text-white px-4 py-2 rounded-lg w-[48%]">
-                            Ajouter
-                        </button>
-                        <button className="bg-red-500 text-white px-4 py-2 rounded-lg w-[48%]">
-                            Retirer
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default PharmacieStock;
+addProductsToFirestore(data);

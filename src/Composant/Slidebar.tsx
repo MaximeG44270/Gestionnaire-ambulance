@@ -53,10 +53,9 @@ const Slidebar: React.FC = () => {
 
 {/* ----------------------------------------------- UTILISATEURS ----------------------------------------------- */}
         <li className="p-2">
-          <div
+          <button
             className="flex items-center justify-between h-10 rounded-md hover:bg-[#0f6ca5] hover:text-white cursor-pointer font-carving-black"
-            onClick={() => setIsUserOpen(!isUserOpen)}
-          >
+            onClick={() => setIsUserOpen(!isUserOpen)}>
             <div className="flex ml-1 items-center gap-3">
               <img src="/image/icone-User.png" alt="Logo" className="w-6 h-6" />
               <span>Utilisateurs</span>
@@ -66,7 +65,7 @@ const Slidebar: React.FC = () => {
               alt="Toggle"
               className="w-4 h-3 mr-1"
             />
-          </div>
+          </button>
           {isUserOpen && (
             <ul className="ml-11 mt-2 space-y-2">
               <li className="hover:bg-[#0f6ca5] hover:text-white rounded-md font-carving-semi-bold p-2">
@@ -85,10 +84,9 @@ const Slidebar: React.FC = () => {
 
 {/* ----------------------------------------------- RESULTATS DESINFECTION ----------------------------------------------- */}
         <li className="p-2">
-          <div
+          <button
             className="flex items-center justify-between h-10 rounded-md hover:bg-[#0f6ca5] hover:text-white cursor-pointer font-carving-black"
-            onClick={() => setIsDesinfectionOpen(!isDesinfectionOpen)}
-          >
+            onClick={() => setIsDesinfectionOpen(!isDesinfectionOpen)}>
             <div className="flex ml-1 items-center gap-3">
               <img src="/image/icone-Resultat.png" alt="Logo" className="w-6 h-6" />
               <span>Résultats Désinfection</span>
@@ -98,7 +96,7 @@ const Slidebar: React.FC = () => {
               alt="Toggle"
               className="w-4 h-3 mr-1"
             />
-          </div>
+          </button>
           {isDesinfectionOpen && (
             <ul className="ml-11 mt-2 space-y-2">
               <li className="hover:bg-[#0f6ca5] hover:text-white rounded-md font-carving-semi-bold p-2">
@@ -126,6 +124,16 @@ const Slidebar: React.FC = () => {
             <img src="/image/icone-setting.png" alt="Logo" className="w-6 h-6" />
             <Link to="/parametres" className="h-10 flex items-center w-full">
               Paramètres
+            </Link>
+          </div>
+        </li>
+
+{/* ----------------------------------------------- VSL & TAXIS ----------------------------------------------- */}
+        <li className="p-2 flex items-center gap-3 font-carving-black">
+          <div className=" flex items-center gap-3 w-72 ml-1 rounded-md  hover:bg-[#0f6ca5] hover:text-white">
+            <img src="/image/icone-vsl-taxis.png" alt="Logo" className="w-6 h-6" />
+            <Link to="/ajoutBDD" className="h-10 flex items-center w-full">
+              Ajout produit BDD
             </Link>
           </div>
         </li>
