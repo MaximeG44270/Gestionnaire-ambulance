@@ -170,40 +170,32 @@ const PharmacieStock: React.FC = () => {
                     <div className="w-full flex flex-col justify-center items-center mt-4">
                         <div className="w-full flex flex-col justify-center items-center mb-4">
                             <div className="w-full flex justify-between flex-wrap">
-                                <div className="flex flex-col w-full">
-                                    <div className="w-full flex justify-between mb-4">
-                                        <button
-                                            className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                            onClick={() => handleButtonClick('Soins et pansements')}>Soins et pansements</button>
-                                        <button
-                                            className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                            onClick={() => handleButtonClick('K.AES')}>K.AES</button>
-                                    </div>
-                                    <div className="w-full flex justify-between mb-4">
-                                        <button
-                                            className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                            onClick={() => handleButtonClick('K.COVID')}>K.COVID</button>
-                                        <button
-                                            className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                            onClick={() => handleButtonClick('Oxygène')}>Oxygène</button>
-                                    </div>
-                                </div>
-                                <div className="flex flex-col w-full">
-                                    <div className="w-full flex justify-between mb-4">
-                                        <button
-                                            className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                            onClick={() => handleButtonClick('K.Accouchement')}>K.Accouchement</button>
-                                        <button
-                                            className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                            onClick={() => handleButtonClick('K.Hémoragie')}>K.Hémoragie</button>
-                                    </div>
-                                    <div className="w-full flex justify-between=">
-                                        <button
-                                            className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                            onClick={() => handleButtonClick('K.Membre')}>K.Membre</button>
-                                        <button
-                                            className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
-                                            onClick={() => handleButtonClick('K.Brûlure')}>K.Brûlure</button>
+                                <div className="flex flex-col xl:flex-wrap xl:flex-row w-full xl:gap-y-4">
+                                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 w-full">
+                                      <button
+                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
+                                        onClick={() => handleButtonClick('Soins et pansements')}>Soins et pansements</button>
+                                      <button
+                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
+                                        onClick={() => handleButtonClick('K.AES')}>K.AES</button>
+                                      <button
+                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
+                                        onClick={() => handleButtonClick('K.COVID')}>K.COVID</button>
+                                      <button
+                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
+                                        onClick={() => handleButtonClick('Oxygène')}>Oxygène</button>
+                                      <button
+                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
+                                        onClick={() => handleButtonClick('K.Accouchement')}>K.Accouchement</button>
+                                      <button
+                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
+                                        onClick={() => handleButtonClick('K.Hémoragie')}>K.Hémoragie</button>
+                                      <button
+                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
+                                        onClick={() => handleButtonClick('K.Membre')}>K.Membre</button>
+                                      <button
+                                        className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
+                                        onClick={() => handleButtonClick('K.Brûlure')}>K.Brûlure</button>
                                     </div>
                                 </div>
                             </div>
