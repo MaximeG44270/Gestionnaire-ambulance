@@ -3,7 +3,7 @@ import Header from "../Composant/Header";
 import Slidebar from "../Composant/Slidebar";
 import "../index.css";
 import "../fonts.css";
-import ProductForm from "../Composant/AjoutBDDProduit";
+import ProductForm from "../Composant/PrduitBDD/AjoutBDDProduit";
 
 const AjoutBDD: React.FC = () => {
   return (
