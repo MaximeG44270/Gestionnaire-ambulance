@@ -40,13 +40,13 @@ code {
 
 .password-field {
   -webkit-text-security: square;
-  text-security: square;
 }
 
 .error-message {
-  font-family: 'MADECarvingSoft-semibold';
+  font-family: 'MADECarvingSoft-semibold', sans-serif;
   color: red;
 }
+
 
 .h-90 {
   height: 90%;
@@ -161,3 +161,37 @@ code {
   color: #7a94a5;
 }
 /* ------------------------------------------- FIN FONT COLOR ------------------------------------------- */
+
+/* ------------------------------------------- DÉBUT ANIMATION ------------------------------------------- */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.5s ease-in-out forwards;
+}
+
+.fade-out-left {
+  animation: fadeOutLeft 1.5s ease-in-out forwards;
+}
+/* ------------------------------------------- FIN ANIMATION ------------------------------------------- */

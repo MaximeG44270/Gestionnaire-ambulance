@@ -32,7 +32,6 @@ const ProductForm: React.FC = () => {
       const productsRef = collection(db, 'products');
       const normalizedReference = reference.trim().toUpperCase();
 
-      // Recherche tous les produits avec la même référence
       const refQuery = query(
         productsRef,
         where('reference', '==', normalizedReference)
@@ -40,7 +39,6 @@ const ProductForm: React.FC = () => {
 
       const refQuerySnapshot = await getDocs(refQuery);
       
-      // Recherche spécifique pour la référence ET la date d'expiration
       const exactQuery = query(
         productsRef,
         where('reference', '==', normalizedReference),
@@ -49,13 +47,11 @@ const ProductForm: React.FC = () => {
 
       const exactQuerySnapshot = await getDocs(exactQuery);
 
-      // Si un produit avec la même référence mais date différente existe
       const hasProductWithDifferentDate = refQuerySnapshot.docs.some(
         doc => doc.data().expiryDate !== expiryDate
       );
 
       if (!exactQuerySnapshot.empty) {
-        // Mise à jour de la quantité si même référence et même date
         const productDoc = exactQuerySnapshot.docs[0];
         const newQuantity = (productDoc.data().quantity || 0) + Number(quantity);
 
@@ -69,7 +65,6 @@ const ProductForm: React.FC = () => {
           setWarning('Note : Ce produit existe également avec d\'autres dates de péremption dans la base de données.');
         }
       } else {
-        // Ajout d'un nouveau produit
         await addDoc(productsRef, {
           productName,
           quantity: Number(quantity),
@@ -88,7 +83,6 @@ const ProductForm: React.FC = () => {
         }
       }
 
-      // Réinitialisation des champs
       setProductName('');
       setQuantity('');
       setExpiryDate('');

@@ -1,21 +1,20 @@
-import React from "react";
-
-interface Product {
-    name: string;
-    quantity: string;
-    expirationDate: string;
-    label: string;
-    description: string;
-    reference: string;
-    manufacturer: string;
-}
+import React, { useState } from "react";
+import { Product } from "../PharmacieInterne/Types";
 
 interface StockProps {
     selectedButton: string | null;
     filteredData: Product[];
+    onProductClick: (product: Product) => void;
 }
 
-const Stock: React.FC<StockProps> = ({ selectedButton, filteredData }) => {
+const Stock: React.FC<StockProps> = ({ selectedButton, filteredData, onProductClick }) => {
+    const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+
+    const handleProductClick = (product: Product) => {
+        setSelectedProductId(product.id);
+        onProductClick(product);
+    };
+
     return (
         <>
             {selectedButton && (
@@ -29,12 +28,16 @@ const Stock: React.FC<StockProps> = ({ selectedButton, filteredData }) => {
                             <p className="font-bold text-center">Quantité</p>
                             <p className="font-bold text-center">Date de péremption</p>
                         </div>
-                        {filteredData.map((row, rowIndex) => (
-                            <div key={`${row.name}-${row.expirationDate}`} className="grid grid-cols-[2fr_1fr_1fr] w-full mb-2">
+                        {filteredData.map((row) => (
+                            <button
+                                key={row.id}
+                                className={`grid grid-cols-[2fr_1fr_1fr] w-full  mb-2 cursor-pointer transition-colors duration-300 ${selectedProductId === row.id ? 'bg-gray-300 rounded-lg p-3' : ''}`}
+                                onClick={() => handleProductClick(row)}
+                            >
                                 <p className="text-left">{row.name}</p>
                                 <p className="text-center">{row.quantity}</p>
                                 <p className="text-center">{row.expirationDate}</p>
-                            </div>
+                            </button>
                         ))}
                     </div>
                 </div>
