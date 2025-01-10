@@ -156,7 +156,7 @@ const PharmacieStock: React.FC = () => {
                             <p className="text-center text-gray-500 hidden font-bold">Quantité</p>
                             <p className="text-center text-gray-500 hidden font-bold">Date Péremption</p>
                         </div>
-                        <div className="bg-white text-center grid w-full text-black rounded-b-lg shadow-lg pl-4 max-h-52 overflow-y-auto">
+                        <div className="bg-white text-center grid w-full text-black rounded-b-lg shadow-lg pl-4 max-h-52 scrollbar-hide overflow-y-auto">
                             {expiringOrExpiredData.map((row) => (
                                 <button
                                     key={row.id}
@@ -210,7 +210,7 @@ const PharmacieStock: React.FC = () => {
                 </div>
 
 {/* --------------------------------------------- RIGHT BLOCK --------------------------------------------- */}
-                <div className="w-full flex flex-col mt-8 overflow-y-auto max-h-80vh items-center md:mt-0 md:ml-4 md:w-1/2">
+                <div className="w-full flex flex-col mt-8 overflow-y-auto max-h-80vh scrollbar-hide items-center md:mt-0 md:ml-4 md:w-1/2">
                     <input
                         type="text"
                         value={searchQuery}
@@ -221,10 +221,10 @@ const PharmacieStock: React.FC = () => {
                     />
 
 {/* --------------------------------------------- FIRST BLOCK --------------------------------------------- */}
-                    <p className="bg-BM w-full rounded-t-lg min-h-12 content-center text-xl lg:mt-2 font-carving-black text-white text-center">
+                    <p className="bg-BM w-full mt-2 rounded-t-lg min-h-12 content-center text-xl lg:mt-2 font-carving-black text-white text-center">
                         Description du produit
                     </p>
-                    <div className="bg-white w-full mb-4 text-black rounded-b-lg shadow-lg p-4 overflow-y-auto">
+                    <div className="bg-white w-full min-h-64 mb-4 text-black rounded-b-lg shadow-lg p-4 overflow-y-auto">
                         {selectedProduct ? (
                             <>
                                 <p className="text-left FC-BM font-bold">Description :</p>
