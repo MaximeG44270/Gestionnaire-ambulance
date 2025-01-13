@@ -114,26 +114,26 @@ const ProductForm: React.FC = () => {
           placeholder="Nom du produit"
           value={productName}
           onChange={(e) => setProductName(e.target.value)}
-          className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2"
+          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2"
         />
         <input
           type="number"
           placeholder="Quantité"
           value={quantity}
           onChange={(e) => setQuantity(Number(e.target.value) || '')}
-          className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2"
+          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2"
         />
         <input
           type="date"
           placeholder="Date de péremption"
           value={expiryDate}
           onChange={(e) => setExpiryDate(e.target.value)}
-          className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2"
+          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2"
         />
         <select
           value={label}
           onChange={(e) => setLabel(e.target.value)}
-          className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2"
+          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2"
         >
           <option value="" disabled>Choisissez un label</option>
           <option value="K.AES">K.AES</option>
@@ -150,28 +150,29 @@ const ProductForm: React.FC = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={3}
-          className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2"
+          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2"
         ></textarea>
         <input
           type="text"
           placeholder="Référence"
           value={reference}
           onChange={(e) => setReference(e.target.value)}
-          className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2"
+          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2"
         />
         <input
           type="text"
           placeholder="Nom du fabricant"
           value={manufacturer}
           onChange={(e) => setManufacturer(e.target.value)}
-          className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2"
+          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2"
         />
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 focus:outline-none focus:ring-2"
+          className="px-4 py-2 bg-BM text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2"
         >
           Ajouter
         </button>
+        {/* <AjoutBDDMasse /> */}
       </form>
     </div>
   );

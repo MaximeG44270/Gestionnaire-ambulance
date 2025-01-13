@@ -1,0 +1,734 @@
+[
+    {
+        "description": "Trousse de premiers secours pour la maison.",
+        "expiryDate": "2026-05-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Trousse de premiers secours",
+        "quantity": 20,
+        "reference": "TP-078"
+    },
+    {
+        "description": "Kit de réanimation avancée.",
+        "expiryDate": "2026-06-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de réanimation avancée",
+        "quantity": 5,
+        "reference": "KA-079"
+    },
+    {
+        "description": "Masque de protection FFP1.",
+        "expiryDate": "2026-07-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Masque FFP1",
+        "quantity": 30,
+        "reference": "MF1-080"
+    },
+    {
+        "description": "Bouteille d'oxygène médicale de grande capacité.",
+        "expiryDate": "2026-08-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Bouteille d'oxygène grande capacité",
+        "quantity": 3,
+        "reference": "BOG-081"
+    },
+    {
+        "description": "Kit de césarienne d'urgence.",
+        "expiryDate": "2026-09-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de césarienne d'urgence",
+        "quantity": 5,
+        "reference": "KCU-082"
+    },
+    {
+        "description": "Pansement hémostatique pour contrôle des hémorragies.",
+        "expiryDate": "2026-10-13",
+        "label": "K.hémorragie",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement hémostatique",
+        "quantity": 20,
+        "reference": "PH-083"
+    },
+    {
+        "description": "Orthèse de genou pour immobilisation.",
+        "expiryDate": "2026-11-13",
+        "label": "K.Membre",
+        "manufacturer": "Medisafe",
+        "productName": "Orthèse de genou",
+        "quantity": 15,
+        "reference": "OG-084"
+    },
+    {
+        "description": "Gel de brûlure pour soins des brûlures.",
+        "expiryDate": "2026-12-13",
+        "label": "K.Brûlure",
+        "manufacturer": "Medisafe",
+        "productName": "Gel de brûlure",
+        "quantity": 25,
+        "reference": "GB-085"
+    },
+    {
+        "description": "Pansement adhésif transparent pour soins de base.",
+        "expiryDate": "2026-01-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement adhésif transparent",
+        "quantity": 50,
+        "reference": "PAT-086"
+    },
+    {
+        "description": "Kit de réanimation pour adultes.",
+        "expiryDate": "2026-02-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de réanimation adulte",
+        "quantity": 5,
+        "reference": "KRA-087"
+    },
+    {
+        "description": "Masque de protection FFP2+.",
+        "expiryDate": "2026-03-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Masque FFP2+",
+        "quantity": 20,
+        "reference": "MF2P-088"
+    },
+    {
+        "description": "Bouteille d'oxygène médicale portable de petite capacité.",
+        "expiryDate": "2026-04-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Bouteille d'oxygène petite capacité",
+        "quantity": 5,
+        "reference": "BOP-089"
+    },
+    {
+        "description": "Kit de naissance d'urgence.",
+        "expiryDate": "2026-05-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de naissance d'urgence",
+        "quantity": 8,
+        "reference": "KNU-090"
+    },
+    {
+        "description": "Pansement compressif avancé pour contrôle des hémorragies.",
+        "expiryDate": "2026-06-13",
+        "label": "K.hémorragie",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement compressif avancé",
+        "quantity": 25,
+        "reference": "PCA-091"
+    },
+    {
+        "description": "Orthèse de cheville pour immobilisation.",
+        "expiryDate": "2026-07-13",
+        "label": "K.Membre",
+        "manufacturer": "Medisafe",
+        "productName": "Orthèse de cheville",
+        "quantity": 15,
+        "reference": "OC-092"
+    },
+    {
+        "description": "Crème anti-brûlure pour soins des brûlures.",
+        "expiryDate": "2026-08-13",
+        "label": "K.Brûlure",
+        "manufacturer": "Medisafe",
+        "productName": "Crème anti-brûlure",
+        "quantity": 20,
+        "reference": "CAB-093"
+    },
+    {
+        "description": "Pansement adhésif waterproof pour soins de base.",
+        "expiryDate": "2026-09-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement adhésif waterproof",
+        "quantity": 50,
+        "reference": "PAW-094"
+    },
+    {
+        "description": "Kit de réanimation pour enfants.",
+        "expiryDate": "2026-10-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de réanimation enfant",
+        "quantity": 5,
+        "reference": "KRE-095"
+    },
+    {
+        "description": "Masque de protection FFP2++.",
+        "expiryDate": "2026-11-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Masque FFP2++",
+        "quantity": 20,
+        "reference": "MF2PP-096"
+    },
+    {
+        "description": "Bouteille d'oxygène médicale portable de moyenne capacité.",
+        "expiryDate": "2026-12-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Bouteille d'oxygène moyenne capacité",
+        "quantity": 5,
+        "reference": "BOM-097"
+    },
+    {
+        "description": "Kit de naissance avancé.",
+        "expiryDate": "2026-01-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de naissance avancé",
+        "quantity": 8,
+        "reference": "KNA-098"
+    },
+    {
+        "description": "Pansement compressif ultra pour contrôle des hémorragies.",
+        "expiryDate": "2026-02-13",
+        "label": "K.hémorragie",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement compressif ultra",
+        "quantity": 25,
+        "reference": "PCU-099"
+    },
+    {
+        "description": "Orthèse de coude pour immobilisation.",
+        "expiryDate": "2026-03-13",
+        "label": "K.Membre",
+        "manufacturer": "Medisafe",
+        "productName": "Orthèse de coude",
+        "quantity": 15,
+        "reference": "OE-100"
+    },
+    {
+        "description": "Gel de brûlure avancé pour soins des brûlures.",
+        "expiryDate": "2026-04-13",
+        "label": "K.Brûlure",
+        "manufacturer": "Medisafe",
+        "productName": "Gel de brûlure avancé",
+        "quantity": 20,
+        "reference": "GBA-101"
+    },
+    {
+        "description": "Pansement adhésif ultra pour soins de base.",
+        "expiryDate": "2026-05-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement adhésif ultra",
+        "quantity": 50,
+        "reference": "PAU-102"
+    },
+    {
+        "description": "Kit de réanimation pour nourrissons.",
+        "expiryDate": "2026-06-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de réanimation nourrisson",
+        "quantity": 5,
+        "reference": "KRN-103"
+    },
+    {
+        "description": "Masque de protection FFP2+++.",
+        "expiryDate": "2026-07-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Masque FFP2+++",
+        "quantity": 20,
+        "reference": "MF2PPP-104"
+    },
+    {
+        "description": "Bouteille d'oxygène médicale portable de grande capacité.",
+        "expiryDate": "2026-08-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Bouteille d'oxygène grande capacité",
+        "quantity": 5,
+        "reference": "BOG-105"
+    },
+    {
+        "description": "Kit de naissance ultra.",
+        "expiryDate": "2026-09-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de naissance ultra",
+        "quantity": 8,
+        "reference": "KNU-106"
+    },
+    {
+        "description": "Pansement compressif max pour contrôle des hémorragies.",
+        "expiryDate": "2026-10-13",
+        "label": "K.hémorragie",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement compressif max",
+        "quantity": 25,
+        "reference": "PCM-107"
+    },
+    { "description": "Masque de protection individuelle. Le masque FFP2, autrement dit canard, est une protection de type air.", "expiryDate": "2025-07-13", "label": "Oxygène", "manufacturer": "Medisafe", "productName": "Masque FFP2", "quantity": 20, "reference": "MP-001" },
+    { "description": "Kit de suture stérile pour les urgences chirurgicales.", "expiryDate": "2026-01-15", "label": "Soins et pansements", "manufacturer": "QuickHeal", "productName": "Kit de Suture", "quantity": 50, "reference": "SP-002" },
+    { "description": "Solution hydroalcoolique, 500 ml, pour désinfection rapide.", "expiryDate": "2026-06-20", "label": "K.Covid", "manufacturer": "CleanCare", "productName": "Gel Hydroalcoolique", "quantity": 100, "reference": "KC-003" },
+    { "description": "Oxygène concentré en cartouche portable.", "expiryDate": "2026-03-10", "label": "Oxygène", "manufacturer": "OxyLife", "productName": "Cartouche Oxygène", "quantity": 15, "reference": "OX-004" },
+    { "description": "Compresses stériles pour soins des plaies.", "expiryDate": "2026-11-05", "label": "Soins et pansements", "manufacturer": "Medisafe", "productName": "Compresses Stériles", "quantity": 200, "reference": "SP-005" },
+    { "description": "Attelle rigide pour immobilisation temporaire.", "expiryDate": "2026-04-18", "label": "K.Membre", "manufacturer": "SafeFix", "productName": "Attelle Rigide", "quantity": 25, "reference": "KM-006" },
+    { "description": "Kit d'accouchement stérile avec gants et compresses.", "expiryDate": "2026-08-30", "label": "K.Accouchement", "manufacturer": "NeoCare", "productName": "Kit d'Accouchement", "quantity": 10, "reference": "KA-007" },
+    { "description": "Bandage compressif pour blessures graves.", "expiryDate": "2026-09-15", "label": "K.Hémorragie", "manufacturer": "StopBleed", "productName": "Bandage Compressif", "quantity": 30, "reference": "KH-008" },
+    { "description": "Crème apaisante pour brûlures légères.", "expiryDate": "2026-07-21", "label": "K.Brûlure", "manufacturer": "BurnRelief", "productName": "Crème Brûlures", "quantity": 50, "reference": "KB-009" },
+    { "description": "Masques chirurgicaux jetables, pack de 50.", "expiryDate": "2026-12-01", "label": "K.Covid", "manufacturer": "HealthPro", "productName": "Masques Chirurgicaux", "quantity": 500, "reference": "KC-010" },
+    { "description": "Kit de soin pour plaies superficielles.", "expiryDate": "2026-02-14", "label": "Soins et pansements", "manufacturer": "HealQuick", "productName": "Kit Plaies Superficielles", "quantity": 40, "reference": "SP-011" },
+    { "description": "Oxygène liquide pour utilisation hospitalière.", "expiryDate": "2026-10-20", "label": "Oxygène", "manufacturer": "OxyMed", "productName": "Oxygène Liquide", "quantity": 10, "reference": "OX-012" },
+    { "description": "Couverture anti-feu pour brûlures graves.", "expiryDate": "2026-05-25", "label": "K.Brûlure", "manufacturer": "FireShield", "productName": "Couverture Anti-Feu", "quantity": 5, "reference": "KB-013" },
+    { "description": "Gants stériles pour procédures médicales.", "expiryDate": "2026-03-30", "label": "K.Accouchement", "manufacturer": "SafeHands", "productName": "Gants Stériles", "quantity": 300, "reference": "KA-014" },
+    { "description": "Spray désinfectant pour surfaces.", "expiryDate": "2026-06-12", "label": "K.Covid", "manufacturer": "CleanTouch", "productName": "Spray Désinfectant", "quantity": 50, "reference": "KC-015" },
+    { "description": "Bandages élastiques pour blessures articulaires.", "expiryDate": "2026-08-18", "label": "K.Membre", "manufacturer": "FlexBand", "productName": "Bandage Élastique", "quantity": 100, "reference": "KM-016" },
+    { "description": "Kit de réparation osseuse temporaire.", "expiryDate": "2026-11-02", "label": "K.Membre", "manufacturer": "BoneFix", "productName": "Kit Réparation Os", "quantity": 15, "reference": "KM-017" },
+    { "description": "Pansements hydrocolloïdes pour cicatrisation rapide.", "expiryDate": "2026-09-22", "label": "Soins et pansements", "manufacturer": "MediSkin", "productName": "Pansements Hydrocolloïdes", "quantity": 35, "reference": "SP-018" },
+    { "description": "Compresses imbibées d'aloès pour soins apaisants.", "expiryDate": "2026-07-14", "label": "K.Brûlure", "manufacturer": "AloeHeal", "productName": "Compresses Aloès", "quantity": 60, "reference": "KB-019" },
+    { "description": "Appareil de saturation en oxygène portable.", "expiryDate": "2026-12-31", "label": "Oxygène", "manufacturer": "OxyTech", "productName": "Saturomètre", "quantity": 10, "reference": "OX-020" },
+    { "description": "Kit de soin post-partum complet.", "expiryDate": "2026-04-09", "label": "K.Accouchement", "manufacturer": "NeoCare", "productName": "Kit Post-Partum", "quantity": 20, "reference": "KA-021" },
+    { "description": "Tampons absorbants pour hémorragies importantes.", "expiryDate": "2026-07-30", "label": "K.Hémorragie", "manufacturer": "HemoControl", "productName": "Tampons Absorbants", "quantity": 15, "reference": "KH-022" },
+    { "description": "Visières de protection anti-projections.", "expiryDate": "2026-10-15", "label": "K.Covid", "manufacturer": "ClearShield", "productName": "Visières Protection", "quantity": 30, "reference": "KC-023" },
+    { "description": "Crème anti-douleur pour brûlures graves.", "expiryDate": "2026-12-12", "label": "K.Brûlure", "manufacturer": "BurnEase", "productName": "Crème Anti-Douleur", "quantity": 20, "reference": "KB-024" },
+    { "description": "Pansements pour cicatrices chirurgicales.", "expiryDate": "2026-11-28", "label": "Soins et pansements", "manufacturer": "ScarFix", "productName": "Pansements Cicatrices", "quantity": 50, "reference": "SP-025" },
+    { "description": "Masques FFP3 avec valve pour filtration avancée.", "expiryDate": "2026-01-08", "label": "K.Covid", "manufacturer": "AirSafe", "productName": "Masque FFP3", "quantity": 100, "reference": "KC-026" },
+    { "description": "Kit de perfusion stérile pour soins intensifs.", "expiryDate": "2026-09-05", "label": "Soins et pansements", "manufacturer": "MediFlow", "productName": "Kit Perfusion", "quantity": 30, "reference": "SP-027" },
+    { "description": "Oxygène médical en bouteille rechargeable.", "expiryDate": "2026-05-16", "label": "Oxygène", "manufacturer": "OxyPro", "productName": "Oxygène Médical", "quantity": 20, "reference": "OX-028" },
+    { "description": "Bandages anti-hémorragiques haute pression.", "expiryDate": "2026-03-22", "label": "K.Hémorragie", "manufacturer": "HemoQuick", "productName": "Bandages Pression", "quantity": 40, "reference": "KH-029" },
+    { "description": "Lunettes de protection avec revêtement anti-buée.", "expiryDate": "2026-06-30", "label": "K.Covid", "manufacturer": "SafeVision", "productName": "Lunettes Protection", "quantity": 25, "reference": "KC-030" },
+    {
+        "description": "Masque de protection individuelle. Le masque ffp2, autrement dit canard est une protection de type air.",
+        "expiryDate": "2025-07-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Masque FFP2",
+        "quantity": 20,
+        "reference": "MP-001"
+    },
+    {
+        "description": "Pansement adhésif pour soins de base.",
+        "expiryDate": "2026-01-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement adhésif",
+        "quantity": 50,
+        "reference": "SP-002"
+    },
+    {
+        "description": "Kit complet pour les premiers secours.",
+        "expiryDate": "2026-02-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de premiers secours",
+        "quantity": 10,
+        "reference": "KA-003"
+    },
+    {
+        "description": "Masque chirurgical pour protection contre les infections.",
+        "expiryDate": "2026-03-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Masque chirurgical",
+        "quantity": 30,
+        "reference": "MC-004"
+    },
+    {
+        "description": "Bouteille d'oxygène portable pour usage médical.",
+        "expiryDate": "2026-04-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Bouteille d'oxygène",
+        "quantity": 5,
+        "reference": "BO-005"
+    },
+    {
+        "description": "Kit d'accouchement pour usage médical.",
+        "expiryDate": "2026-05-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit d'accouchement",
+        "quantity": 8,
+        "reference": "KA-006"
+    },
+    {
+        "description": "Kit de contrôle des hémorragies.",
+        "expiryDate": "2026-06-13",
+        "label": "K.hémorragie",
+        "manufacturer": "Medisafe",
+        "productName": "Kit hémorragie",
+        "quantity": 15,
+        "reference": "KH-007"
+    },
+    {
+        "description": "Attelle pour immobilisation des membres.",
+        "expiryDate": "2026-07-13",
+        "label": "K.Membre",
+        "manufacturer": "Medisafe",
+        "productName": "Attelle",
+        "quantity": 25,
+        "reference": "AM-008"
+    },
+    {
+        "description": "Kit de soins pour brûlures.",
+        "expiryDate": "2026-08-13",
+        "label": "K.Brûlure",
+        "manufacturer": "Medisafe",
+        "productName": "Kit brûlure",
+        "quantity": 12,
+        "reference": "KB-009"
+    },
+    {
+        "description": "Gants en latex pour usage médical.",
+        "expiryDate": "2026-09-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Gants en latex",
+        "quantity": 100,
+        "reference": "GL-010"
+    },
+    {
+        "description": "Défibrillateur automatique externe.",
+        "expiryDate": "2026-10-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Défibrillateur",
+        "quantity": 2,
+        "reference": "DA-011"
+    },
+    {
+        "description": "Gel hydroalcoolique pour désinfection des mains.",
+        "expiryDate": "2026-11-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Gel hydroalcoolique",
+        "quantity": 50,
+        "reference": "GH-012"
+    },
+    {
+        "description": "Concentrateur d'oxygène pour usage domestique.",
+        "expiryDate": "2026-12-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Concentrateur d'oxygène",
+        "quantity": 3,
+        "reference": "CO-013"
+    },
+    {
+        "description": "Kit de naissance pour usage médical.",
+        "expiryDate": "2026-01-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de naissance",
+        "quantity": 10,
+        "reference": "KN-014"
+    },
+    {
+        "description": "Garrot pour contrôle des hémorragies.",
+        "expiryDate": "2026-02-13",
+        "label": "K.hémorragie",
+        "manufacturer": "Medisafe",
+        "productName": "Garrot",
+        "quantity": 20,
+        "reference": "GR-015"
+    },
+    {
+        "description": "Orthèse pour immobilisation des membres.",
+        "expiryDate": "2026-03-13",
+        "label": "K.Membre",
+        "manufacturer": "Medisafe",
+        "productName": "Orthèse",
+        "quantity": 15,
+        "reference": "OR-016"
+    },
+    {
+        "description": "Pommade pour soins des brûlures.",
+        "expiryDate": "2026-04-13",
+        "label": "K.Brûlure",
+        "manufacturer": "Medisafe",
+        "productName": "Pommade brûlure",
+        "quantity": 30,
+        "reference": "PB-017"
+    },
+    {
+        "description": "Sparadrap pour soins de base.",
+        "expiryDate": "2026-05-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Sparadrap",
+        "quantity": 100,
+        "reference": "SP-018"
+    },
+    {
+        "description": "Kit de réanimation cardio-pulmonaire.",
+        "expiryDate": "2026-06-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de réanimation",
+        "quantity": 5,
+        "reference": "KR-019"
+    },
+    {
+        "description": "Masque de protection FFP3.",
+        "expiryDate": "2026-07-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Masque FFP3",
+        "quantity": 20,
+        "reference": "MF-020"
+    },
+    {
+        "description": "Bouteille d'oxygène médicale portable.",
+        "expiryDate": "2026-08-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Bouteille d'oxygène portable",
+        "quantity": 5,
+        "reference": "BP-021"
+    },
+    {
+        "description": "Kit de césarienne pour usage médical.",
+        "expiryDate": "2026-09-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de césarienne",
+        "quantity": 8,
+        "reference": "KC-022"
+    },
+    {
+        "description": "Compresse stérile pour contrôle des hémorragies.",
+        "expiryDate": "2026-10-13",
+        "label": "K.hémorragie",
+        "manufacturer": "Medisafe",
+        "productName": "Compresse stérile",
+        "quantity": 50,
+        "reference": "CS-023"
+    },
+    {
+        "description": "Béquilles pour immobilisation des membres.",
+        "expiryDate": "2026-11-13",
+        "label": "K.Membre",
+        "manufacturer": "Medisafe",
+        "productName": "Béquilles",
+        "quantity": 10,
+        "reference": "BQ-024"
+    },
+    {
+        "description": "Bandage pour soins des brûlures.",
+        "expiryDate": "2026-12-13",
+        "label": "K.Brûlure",
+        "manufacturer": "Medisafe",
+        "productName": "Bandage brûlure",
+        "quantity": 20,
+        "reference": "BB-025"
+    },
+    {
+        "description": "Ciseaux médicaux pour soins de base.",
+        "expiryDate": "2026-01-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Ciseaux médicaux",
+        "quantity": 30,
+        "reference": "CM-026"
+    },
+    {
+        "description": "Kit de défibrillation automatique.",
+        "expiryDate": "2026-02-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de défibrillation",
+        "quantity": 2,
+        "reference": "KD-027"
+    },
+    {
+        "description": "Visière de protection pour usage médical.",
+        "expiryDate": "2026-03-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Visière de protection",
+        "quantity": 20,
+        "reference": "VP-028"
+    },
+    {
+        "description": "Masque à oxygène pour usage médical.",
+        "expiryDate": "2026-04-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Masque à oxygène",
+        "quantity": 10,
+        "reference": "MO-029"
+    },
+    {
+        "description": "Kit de forceps pour usage médical.",
+        "expiryDate": "2026-05-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de forceps",
+        "quantity": 5,
+        "reference": "KF-030"
+    },
+    {
+        "description": "Pansement hydrocolloïde pour soins avancés.",
+        "expiryDate": "2026-06-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement hydrocolloïde",
+        "quantity": 40,
+        "reference": "PH-031"
+    },
+    {
+        "description": "Kit de réanimation pédiatrique.",
+        "expiryDate": "2026-07-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de réanimation pédiatrique",
+        "quantity": 3,
+        "reference": "KP-032"
+    },
+    {
+        "description": "Blouse de protection médicale.",
+        "expiryDate": "2026-08-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Blouse de protection",
+        "quantity": 50,
+        "reference": "BP-033"
+    },
+    {
+        "description": "Concentrateur d'oxygène portable.",
+        "expiryDate": "2026-09-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Concentrateur d'oxygène portable",
+        "quantity": 4,
+        "reference": "CP-034"
+    },
+    {
+        "description": "Kit de ventouse obstétricale.",
+        "expiryDate": "2026-10-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de ventouse",
+        "quantity": 6,
+        "reference": "KV-035"
+    },
+    {
+        "description": "Pansement compressif pour contrôle des hémorragies.",
+        "expiryDate": "2026-11-13",
+        "label": "K.hémorragie",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement compressif",
+        "quantity": 25,
+        "reference": "PC-036"
+    },
+    {
+        "description": "Orthèse de poignet pour immobilisation.",
+        "expiryDate": "2026-12-13",
+        "label": "K.Membre",
+        "manufacturer": "Medisafe",
+        "productName": "Orthèse de poignet",
+        "quantity": 15,
+        "reference": "OP-037"
+    },
+    {
+        "description": "Crème cicatrisante pour soins des brûlures.",
+        "expiryDate": "2026-01-13",
+        "label": "K.Brûlure",
+        "manufacturer": "Medisafe",
+        "productName": "Crème cicatrisante",
+        "quantity": 20,
+        "reference": "CC-038"
+    },
+    {
+        "description": "Pince médicale pour soins de base.",
+        "expiryDate": "2026-02-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Pince médicale",
+        "quantity": 30,
+        "reference": "PM-039"
+    },
+    {
+        "description": "Pansement hydrocolloïde pour soins avancés.",
+        "expiryDate": "2026-06-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement hydrocolloïde",
+        "quantity": 40,
+        "reference": "PH-031"
+    },
+    {
+        "description": "Kit de réanimation pédiatrique.",
+        "expiryDate": "2026-07-13",
+        "label": "K.AES",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de réanimation pédiatrique",
+        "quantity": 3,
+        "reference": "KP-032"
+    },
+    {
+        "description": "Blouse de protection médicale.",
+        "expiryDate": "2026-08-13",
+        "label": "K.Covid",
+        "manufacturer": "Medisafe",
+        "productName": "Blouse de protection",
+        "quantity": 50,
+        "reference": "BP-033"
+    },
+    {
+        "description": "Concentrateur d'oxygène portable.",
+        "expiryDate": "2026-09-13",
+        "label": "Oxygène",
+        "manufacturer": "Medisafe",
+        "productName": "Concentrateur d'oxygène portable",
+        "quantity": 4,
+        "reference": "CP-034"
+    },
+    {
+        "description": "Kit de ventouse obstétricale.",
+        "expiryDate": "2026-10-13",
+        "label": "K.Accouchement",
+        "manufacturer": "Medisafe",
+        "productName": "Kit de ventouse",
+        "quantity": 6,
+        "reference": "KV-035"
+    },
+    {
+        "description": "Pansement compressif pour contrôle des hémorragies.",
+        "expiryDate": "2026-11-13",
+        "label": "K.hémorragie",
+        "manufacturer": "Medisafe",
+        "productName": "Pansement compressif",
+        "quantity": 25,
+        "reference": "PC-036"
+    },
+    {
+        "description": "Orthèse de poignet pour immobilisation.",
+        "expiryDate": "2026-12-13",
+        "label": "K.Membre",
+        "manufacturer": "Medisafe",
+        "productName": "Orthèse de poignet",
+        "quantity": 15,
+        "reference": "OP-037"
+    },
+    {
+        "description": "Crème cicatrisante pour soins des brûlures.",
+        "expiryDate": "2026-01-13",
+        "label": "K.Brûlure",
+        "manufacturer": "Medisafe",
+        "productName": "Crème cicatrisante",
+        "quantity": 20,
+        "reference": "CC-038"
+    },
+    {
+        "description": "Pince médicale pour soins de base.",
+        "expiryDate": "2026-02-13",
+        "label": "Soins et pansements",
+        "manufacturer": "Medisafe",
+        "productName": "Pince médicale",
+        "quantity": 30,
+        "reference": "PM-039"
+    },
+]

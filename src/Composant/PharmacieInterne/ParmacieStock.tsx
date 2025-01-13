@@ -67,8 +67,17 @@ const PharmacieStock: React.FC = () => {
     };
 
     const filteredData = data.filter((row) => {
-        if (selectedButton && row.label !== selectedButton) return false;
-        return row.name.toLowerCase().includes(searchQuery.toLowerCase()) || row.reference.toLowerCase().includes(searchQuery.toLowerCase());
+        // Si "Tous les produits" est sélectionné, on montre tout
+        if (selectedButton === 'Tous les produits') {
+            return true;
+        }
+        // Sinon, on filtre par le label sélectionné
+        if (selectedButton && row.label !== selectedButton) {
+            return false;
+        }
+        // Dans tous les cas, on applique le filtre de recherche
+        return row.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+               row.reference.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
     const expiringOrExpiredData = data.filter((row) => isExpiringOrExpired(row.expirationDate));
@@ -137,46 +146,42 @@ const PharmacieStock: React.FC = () => {
     return (
         <div>
             <div className="flex flex-col md:flex-row w-full">
-{/* ---------------------------------------------- BLOCK LEFT --------------------------------------------- */}
                 <div className="w-full overflow-y-auto max-h-80vh scrollbar-hide flex flex-col md:ml-4 md:w-1/2 md:mt-4">
-{/* ---------------------------------------------- FIRST BLOCK -------------------------------------------- */}
                     <div className="w-full flex flex-col items-center md:mt-0">
                         <p className="items-center text-center text-2xl w-full FC-BM mr-4 p-4 font-carving-black">
                             Pharmacie sur site
                         </p>
                     </div>
 
-{/* ----------------------------------------------- THREE BLOCK -------------------------------------------- */}
                     <div className="w-full flex flex-col justify-center items-center mt-4">
                         <p className="bg-BM w-full rounded-t-lg h-12 content-center text-xl font-carving-black text-white text-center">
                             Date de péremption
                         </p>
-                        <div className="bg-white grid grid-cols-[2fr_1fr_1fr] text-center w-full text-black p-4 font-carving-bold">
-                            <p className="text-left text-gray-500 font-bold">Produits</p>
-                            <p className="text-center text-gray-500 hidden font-bold">Quantité</p>
-                            <p className="text-center text-gray-500 hidden font-bold">Date Péremption</p>
+                        <div className="bg-white grid grid-cols-3 items-center text-center w-full text-black p-4 font-carving-bold">
+                            <p className="text-left text-gray-500 font-bold col-start-1">Produits</p>
+                            <p className="text-right text-gray-500 hidden md:block font-bold col-start-3">Date Péremption</p>
                         </div>
                         <div className="bg-white text-center grid w-full text-black rounded-b-lg shadow-lg pl-4 max-h-52 scrollbar-hide overflow-y-auto">
                             {expiringOrExpiredData.map((row) => (
                                 <button
                                     key={row.id}
-                                    className={`grid grid-cols-[2fr_1fr_1fr] w-full mb-2 cursor-pointer hover:bg-gray-300 hover:p-3 hover:rounded-lg transition-colors duration-300 ${selectedProductId === row.id ? 'bg-gray-300 rounded-lg p-3' : ''}`}
-                                    onClick={() => handleProductClick(row)}
-                                >
+                                    className={`grid grid-cols-2 w-full mb-2 cursor-pointer items-center hover:bg-gray-300 hover:p-3 hover:rounded-lg transition-colors duration-300 ${selectedProductId === row.id ? 'bg-gray-300 rounded-lg p-3' : ''}`}
+                                    onClick={() => handleProductClick(row)}>
                                     <p className="text-left">{row.name}</p>
-                                    <p className="text-center hidden">{row.quantity}</p>
-                                    <p className="text-center hidden">{row.expirationDate}</p>
+                                    <p className="text-right hidden p-4 md:block">{row.expirationDate}</p>
                                 </button>
                             ))}
                         </div>
                     </div>
 
-{/* --------------------------------------------- FOUR BLOCK --------------------------------------------- */}
                     <div className="w-full flex flex-col justify-center items-center mt-4">
                         <div className="w-full flex flex-col justify-center items-center mb-4">
                             <div className="w-full flex justify-between flex-wrap">
                                 <div className="flex flex-col xl:flex-wrap xl:flex-row w-full xl:gap-y-4">
                                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 w-full">
+                                        <button
+                                            className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
+                                            onClick={() => handleButtonClick('Tous les produits')}>Tous les produits</button>
                                         <button
                                             className="bg-slate-400 text-white px-4 py-2 rounded-lg font-carving-bold"
                                             onClick={() => handleButtonClick('Soins et pansements')}>Soins et pansements</button>
@@ -209,7 +214,6 @@ const PharmacieStock: React.FC = () => {
                     <Stock selectedButton={selectedButton} filteredData={filteredData} onProductClick={handleProductClick} />
                 </div>
 
-{/* --------------------------------------------- RIGHT BLOCK --------------------------------------------- */}
                 <div className="w-full flex flex-col mt-8 overflow-y-auto max-h-80vh scrollbar-hide items-center md:mt-0 md:ml-4 md:w-1/2">
                     <input
                         type="text"
@@ -220,7 +224,6 @@ const PharmacieStock: React.FC = () => {
                         className="px-4 py-2 border mb-4 md:mt-8 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500 font-carving-semi-bold"
                     />
 
-{/* --------------------------------------------- FIRST BLOCK --------------------------------------------- */}
                     <p className="bg-BM w-full mt-2 rounded-t-lg min-h-12 content-center text-xl lg:mt-2 font-carving-black text-white text-center">
                         Description du produit
                     </p>
@@ -247,7 +250,6 @@ const PharmacieStock: React.FC = () => {
                         )}
                     </div>
 
-{/* --------------------------------------------- SECOND BLOCK ---------------------------------------------- */}
                     <div className="w-full">
                         <input
                             type="text"
@@ -270,7 +272,6 @@ const PharmacieStock: React.FC = () => {
                         </button>
                     </div>
 
-{/* --------------------------------------------- AFFICHER LE MESSAGE ---------------------------------------------- */}
                     {message && (
                         <div className={`mt-4 p-4 bg-green-200 text-green-800 rounded-lg transition-all duration-500 ease-in-out ${isVisible ? 'fade-in-left' : 'fade-out-left'}`}>
                             {message}

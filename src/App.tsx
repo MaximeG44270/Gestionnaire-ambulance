@@ -13,7 +13,8 @@ import ResultatsTaxis from "./Pages/ResultatsDesinfection/ResultatsDesinfectionT
 import Parametres from "./Pages/Parametre";
 import VslAll from "./Pages/VslTaxis";
 import AmbulanceAll from "./Pages/Ambulance";
-import AjoutBDD from "./Pages/AjoutBDD";
+import AjoutBDD from "./Pages/AjoutBDDProduct";
+import AjoutBDDAmbulance from "./Pages/AjoutBDDAmbulance";
 
 
 const App: React.FC = () => {
@@ -113,6 +114,14 @@ const App: React.FC = () => {
             element={
               <ProtectedRoute>
                 <AjoutBDD />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ajoutBDDAmbulance"
+            element={
+              <ProtectedRoute>
+                <AjoutBDDAmbulance />
               </ProtectedRoute>
             }
           />

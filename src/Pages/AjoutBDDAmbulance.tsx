@@ -1,10 +1,11 @@
 import React from "react";
-import "../../index.css";
-import "../../fonts.css";
-import Header from "../../Composant/Header";
-import Slidebar from "../../Composant/Slidebar";
+import Header from "../Composant/Header";
+import Slidebar from "../Composant/Slidebar";
+import "../index.css";
+import "../fonts.css";
+import AddAmbulance from "../Composant/Ambulance/AjouterDesAmbulances/AddAmbulance";
 
-const ResultatsAmbulance: React.FC = () => {
+const AjoutBDDAmbulance: React.FC = () => {
   return (
     <div className="flex flex-col h-screen">
       <Header />
@@ -13,11 +14,11 @@ const ResultatsAmbulance: React.FC = () => {
           <Slidebar />
         </div>
         <div className="flex-grow bg-gray-100 p-4">
-          <h1>Bienvenue sur la page Résultats des Désinfection des Ambulances</h1>
+            <AddAmbulance />
         </div>
       </div>
     </div>
   );
 };
 
-export default ResultatsAmbulance;
+export default AjoutBDDAmbulance;

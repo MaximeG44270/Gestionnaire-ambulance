@@ -30,6 +30,8 @@ module.exports = {
       },
       maxHeight: {
         '80vh': '80vh',
+        '87vh': '87vh',
+        '60vh': '60vh',
       },
       screens: {
         'custom': '720px',

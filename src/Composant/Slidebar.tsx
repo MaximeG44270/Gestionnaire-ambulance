@@ -128,12 +128,21 @@ const Slidebar: React.FC = () => {
           </div>
         </li>
 
-{/* ----------------------------------------------- VSL & TAXIS ----------------------------------------------- */}
+{/* ----------------------------------------------- AJOUT BDD PRODUIT ----------------------------------------------- */}
         <li className="p-2 flex items-center gap-3 font-carving-black">
           <div className=" flex items-center gap-3 w-72 ml-1 rounded-md  hover:bg-[#0f6ca5] hover:text-white">
             <img src="/image/icone-vsl-taxis.png" alt="Logo" className="w-6 h-6" />
             <Link to="/ajoutBDD" className="h-10 flex items-center w-full">
               Ajout produit BDD
+            </Link>
+          </div>
+        </li>
+{/* ----------------------------------------------- AJOUT BDD AMBULANCE ----------------------------------------------- */}
+        <li className="p-2 flex items-center gap-3 font-carving-black">
+          <div className=" flex items-center gap-3 w-72 ml-1 rounded-md  hover:bg-[#0f6ca5] hover:text-white">
+            <img src="/image/icone-vsl-taxis.png" alt="Logo" className="w-6 h-6" />
+            <Link to="/ajoutBDDAmbulance" className="h-10 flex items-center w-full">
+              Ajout Ambulance BDD
             </Link>
           </div>
         </li>
