@@ -67,15 +67,12 @@ const PharmacieStock: React.FC = () => {
     };
 
     const filteredData = data.filter((row) => {
-        // Si "Tous les produits" est sélectionné, on montre tout
         if (selectedButton === 'Tous les produits') {
             return true;
         }
-        // Sinon, on filtre par le label sélectionné
         if (selectedButton && row.label !== selectedButton) {
             return false;
         }
-        // Dans tous les cas, on applique le filtre de recherche
         return row.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                row.reference.toLowerCase().includes(searchQuery.toLowerCase());
     });
@@ -261,12 +258,12 @@ const PharmacieStock: React.FC = () => {
                     </div>
                     <div className="w-full flex justify-between mt-4">
                         <button
-                            className="bg-BM text-white px-4 py-2 rounded-lg w-[48%]"
+                            className="bg-BM text-white font-carving-bold px-4 py-2 rounded-lg w-[48%]"
                             onClick={handleAddQuantity}>
                             Ajouter
                         </button>
                         <button
-                            className="bg-slate-400 text-white px-4 py-2 rounded-lg w-[48%]"
+                            className="bg-slate-400 text-white font-carving-bold px-4 py-2 rounded-lg w-[48%]"
                             onClick={handleRemoveQuantity}>
                             Retirer
                         </button>

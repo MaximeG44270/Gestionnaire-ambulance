@@ -1,8 +1,6 @@
-// src/firebaseConfig.ts
 import {initializeApp} from "firebase/app";
 import {doc, getFirestore, setDoc} from "firebase/firestore";
 import {getAuth} from "firebase/auth";
-
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -44,5 +42,4 @@ const createAdminUser = async () => {
 };
 
 createAdminUser();
-
 export {db, auth};

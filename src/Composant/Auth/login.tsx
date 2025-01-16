@@ -45,7 +45,7 @@ const Login: React.FC = () => {
               {error}
             </div>
           )}
-{/* ----------------------------------------- EMAIL -----------------------------------------           */}
+{/* ----------------------------------------- EMAIL ----------------------------------------- */}
           <div className="flex flex-col">
             <label htmlFor="email" className="block px-16 FC-BM font-carving-semi-bold text-base">
               E-mail
@@ -59,7 +59,7 @@ const Login: React.FC = () => {
               className="mt-2 px-2 mx-auto w-81 text-base py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-BM font-carving-semi-bold"
             />
           </div>
-{/* ----------------------------------------- PASSWORD -----------------------------------------           */}
+{/* ----------------------------------------- PASSWORD ----------------------------------------- */}
           <div className="flex flex-col">
             <label htmlFor="password" className="block px-16 FC-BM font-carving-semi-bold text-base">
               Mot de passe
@@ -82,36 +82,7 @@ const Login: React.FC = () => {
               </div>
             </div>
           </div>
-{/* ----------------------------------------- CHECKBOX -----------------------------------------           */}
-        {/* <div className="flex flex-row justify-between">
-          <label className='themeSwitcherTwo flex justify-between px-16 relative cursor-pointer select-none items-center'>
-            <div className="flex">
-              <input
-                type='checkbox'
-                checked={isChecked}
-                onChange={handleCheckboxChange}
-                className='sr-only'
-              />
-              <span
-                className={`slider flex h-6 w-[40px] items-center rounded-full p-1 duration-200 ${
-                  isChecked ? 'bg-[#0f6ca5]' : 'bg-[#7a94a5]'
-                }`}
-              >
-                <span
-                  className={`dot h-4 w-4 rounded-full bg-white duration-200 ${
-                    isChecked ? 'translate-x-[16px]' : ''
-                  }`}
-                ></span>
-              </span>
-              <span className='label flex items-center FC-BM font-carving-semi-bold text-base ml-2.5'>
-                Se souvenir de moi
-              </span>
-            </div>
-          </label>  
-          <span className='label flex items-center FC-BM font-carving-semi-bold text-base mr-16'>
-            Mot de passe oublié?
-          </span>
-        </div> */}
+{/* ----------------------------------------- CHECKBOX ----------------------------------------- */}
         <div className="flex flex-col pl-12 pr-16 md:flex-row sm:justify-between md:items-center">
           <label className="themeSwitcherTwo flex justify-between px-4 relative cursor-pointer select-none items-center mb-4 sm:mb-0">
             <div className="flex">
@@ -141,7 +112,7 @@ const Login: React.FC = () => {
             Mot de passe oublié?
           </span>
         </div>        
-{/* ----------------------------------------- BUTTON -----------------------------------------           */}  
+{/* ----------------------------------------- BUTTON ----------------------------------------- */}  
           <div className="flex flex-col items-center">
             <button
               type="submit"

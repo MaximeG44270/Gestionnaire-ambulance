@@ -37,7 +37,7 @@ const Ambulance: React.FC = () => {
 
     return (
         <div className="flex-grow overflow-y-auto bg-gray-100 p-4 h-screen">
-            {/* --------------------------------------------- FIRST BLOCK --------------------------------------------- */}
+{/* --------------------------------------------- FIRST BLOCK --------------------------------------------- */}
             <div className="w-full flex flex-col md:flex-row">
                 <div className="w-full">
                     <p className="items-center text-center text-2xl w-full FC-BM mr-4 p-4 font-carving-black">
@@ -55,39 +55,32 @@ const Ambulance: React.FC = () => {
                 </div>
             </div>
 
-            {/* --------------------------------------------- SECOND BLOCK --------------------------------------------- */}
+{/* --------------------------------------------- SECOND BLOCK --------------------------------------------- */}
             <div className="w-full flex flex-col md:flex-row">
                 <button
                     className={`px-4 py-2 md:mr-8 text-xl rounded-lg font-carving-bold ${
-                        selectedType === 'Petit Volume' ? 'bg-BM text-white' : 'bg-slate-400 text-white'
-                    }`}
+                        selectedType === 'Petit Volume' ? 'bg-BM text-white' : 'bg-slate-400 text-white'}`}
                     onClick={(e) => {
                         e.stopPropagation();
-                        setSelectedType('Petit Volume');
-                    }}
-                >
+                        setSelectedType('Petit Volume');}}>
                     Petit Volume
                 </button>
                 <button
                     className={`mt-4 md:mt-0 px-4 py-2 text-xl rounded-lg font-carving-bold ${
-                        selectedType === 'Grand Volume' ? 'bg-BM text-white' : 'bg-slate-400 text-white'
-                    }`}
+                        selectedType === 'Grand Volume' ? 'bg-BM text-white' : 'bg-slate-400 text-white'}`}
                     onClick={(e) => {
                         e.stopPropagation();
-                        setSelectedType('Grand Volume');
-                    }}
-                >
+                        setSelectedType('Grand Volume');}}>
                     Grand Volume
                 </button>
                 <button
                     className="bg-slate-400 text-white px-4 py-2 mt-4 md:mt-0 text-xl md:ml-8 rounded-lg font-carving-bold"
-                    onClick={() => setSelectedType(null)}
-                >
+                    onClick={() => setSelectedType(null)}>
                     Tout afficher
                 </button>
             </div>
 
-            {/* --------------------------------------------- THIRD BLOCK --------------------------------------------- */}
+{/* --------------------------------------------- THIRD BLOCK --------------------------------------------- */}
             <div className="w-full flex flex-col justify-center items-center mt-4">
                 <p className="bg-BM w-full rounded-t-lg h-12 content-center text-xl font-carving-black text-white text-center">
                     Liste des véhicules

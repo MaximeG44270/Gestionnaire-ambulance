@@ -32,6 +32,8 @@ module.exports = {
         '80vh': '80vh',
         '87vh': '87vh',
         '60vh': '60vh',
+        '91vh': '91vh',
+        '92vh': '92vh',
       },
       screens: {
         'custom': '720px',
