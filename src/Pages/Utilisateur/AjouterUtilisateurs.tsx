@@ -3,6 +3,7 @@ import Slidebar from "../../Composant/Slidebar";
 import Header from "../../Composant/Header";
 import { db } from "../../firebaseConfig";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import "../../index.css";
 import "../../fonts.css";
 
@@ -42,13 +43,21 @@ const AjouterUtilisateurs: React.FC = () => {
         return;
       }
 
+      const auth = getAuth();
+      const temporaryPassword = "temporaryPassword123";
+
+      await createUserWithEmailAndPassword(auth, formData.email, temporaryPassword);
+
       const userRef = collection(db, "utilisateurs");
       await addDoc(userRef, {
         ...formData,
         createdAt: new Date().toISOString(),
         isActive: true,
       });
-      setSuccessMessage("Utilisateur ajouté avec succès !");
+
+      await sendPasswordResetEmail(auth, formData.email);
+
+      setSuccessMessage("Utilisateur ajouté avec succès ! Un email de réinitialisation de mot de passe a été envoyé.");
       setFormData({
         email: "",
         firstName: "",

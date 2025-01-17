@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
-import "../../index.css";
-import "../../fonts.css";
+import Cookies from 'js-cookie';
+import '../../index.css';
+import '../../fonts.css';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -11,12 +12,29 @@ const Login: React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
+  useEffect(() => {
+    const rememberedEmail = Cookies.get('rememberedEmail');
+    const rememberedPassword = Cookies.get('rememberedPassword');
+    if (rememberedEmail && rememberedPassword) {
+      setEmail(rememberedEmail);
+      setPassword(rememberedPassword);
+      setIsChecked(true);
+    }
+  }, []);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      if (isChecked) {
+        Cookies.set('rememberedEmail', email, { expires: 30 });
+        Cookies.set('rememberedPassword', password, { expires: 30 });
+      } else {
+        Cookies.remove('rememberedEmail');
+        Cookies.remove('rememberedPassword');
+      }
       window.location.href = "/dashboard";
     } catch (err) {
       setError("Identifiants incorrects ou problème réseau.");
@@ -28,26 +46,39 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row md:px-8 items-center justify-center h-screen bg-gray-200 bg-login">
-      <div className="bg-container-left flex w-4/5 md:w-1/2 h-90 justify-center place-items-center box-shadow-left rounded-l-2xl">
-        <img src="/image/logo-amb.png" alt="logo-amb" className="w-3/4"/>
+    <div className="flex flex-col bg-login lg:flex-row lg:p-12 p-8 min-h-screen">
+{/* ---------------------------------------------- PREMIER BLOCK --------------------------------------------------------------- */}
+      <div className="bg-cover bg-container-left bg-center p-4 lg:rounded-t-none rounded-t-2xl shadow-lg h-3/10 lg:h-auto lg:w-1/2 flex justify-center items-center lg:rounded-tl-2xl lg:rounded-bl-2xl">
+        <img
+          src="/image/logo-amb.png"
+          alt="logo-amb"
+          className="w-full"
+        />
       </div>
-      <div className="w-4/5 md:w-1/2 h-90 bg-white box-shadow-right rounded-r-2xl">
-        <div>
-          <p className="text-5xl text-center mt-14 FC-BM font-carving-black">MedLogiQ</p>
-          <p className="text-2xl text-center mt-4 FC-BL font-carving-bold">
-            Le gestionnaire des Ambulances MG Digital
-          </p>
-        </div>
-        <form onSubmit={handleLogin} className="space-y-6 mt-9">
+
+{/* ---------------------------------------------- SECOND BLOCK --------------------------------------------------------------- */}
+      <div className="bg-white p-4 xl:rounded-b-none rounded-b-2xl shadow-lg xl:shadow-2xl xl:rounded-tr-2xl xl:rounded-br-2xl flex-grow xl:w-1/2 flex flex-col justify-center items-center">
+        <p className="text-5xl mt-4 text-center FC-BM font-carving-black">
+          MedLogiQ
+        </p>
+        <p className="text-2xl mt-5 text-center FC-BL font-carving-bold">
+          Le gestionnaire des Ambulances MG Digital
+        </p>
+
+{/* ---------------------------------------------- FORMULAIRE --------------------------------------------------------------- */}
+        <form onSubmit={handleLogin} className="mt-4 w-full max-w-md">
           {error && (
             <div className="text-red-500 text-center font-carving-semi-bold">
               {error}
             </div>
           )}
-{/* ----------------------------------------- EMAIL ----------------------------------------- */}
+
+{/* ---------------------------------------------- EMAIL --------------------------------------------------------------- */}
           <div className="flex flex-col">
-            <label htmlFor="email" className="block px-16 FC-BM font-carving-semi-bold text-base">
+            <label
+              htmlFor="email"
+              className="block md:mt-8 mx-auto FC-BM font-carving-semi-bold text-base"
+            >
               E-mail
             </label>
             <input
@@ -56,25 +87,33 @@ const Login: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="gestionnaire-ambulances@mg-crea.fr"
-              className="mt-2 px-2 mx-auto w-81 text-base py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-BM font-carving-semi-bold"
+              className="mt-2 md:mt-4 md:px-4 px-2 mx-auto w-full text-base py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-BM font-carving-semi-bold"
             />
           </div>
-{/* ----------------------------------------- PASSWORD ----------------------------------------- */}
+
+{/* ---------------------------------------------- MOT DE PASSE --------------------------------------------------------------- */}
           <div className="flex flex-col">
-            <label htmlFor="password" className="block px-16 FC-BM font-carving-semi-bold text-base">
+            <label
+              htmlFor="password"
+              className="block mx-auto mt-2 FC-BM font-carving-semi-bold text-base"
+            >
               Mot de passe
             </label>
-            <div className="relative mx-auto w-81">
+            <div className="relative mx-auto w-full">
               <div className="relative">
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full mt-2 px-2 py-2 border rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-BM font-carving-semi-bold pr-10"
+                  className="w-full md:mt-4 md:px-4 mt-2 px-2 py-2 border rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-BM font-carving-semi-bold pr-10"
                 />
                 <img
-                  src={showPassword ? "/image/picto-password-2.png" : "/image/picto-password.png"}
+                  src={
+                    showPassword
+                      ? "/image/picto-password-2.png"
+                      : "/image/picto-password.png"
+                  }
                   alt="toggle password"
                   className="absolute right-3 top-1/2 transform -translate-y-1/4 w-6 h-6 cursor-pointer"
                   onClick={() => setShowPassword(!showPassword)}
@@ -82,47 +121,57 @@ const Login: React.FC = () => {
               </div>
             </div>
           </div>
-{/* ----------------------------------------- CHECKBOX ----------------------------------------- */}
-        <div className="flex flex-col pl-12 pr-16 md:flex-row sm:justify-between md:items-center">
-          <label className="themeSwitcherTwo flex justify-between px-4 relative cursor-pointer select-none items-center mb-4 sm:mb-0">
-            <div className="flex">
-              <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={handleCheckboxChange}
-                className="sr-only"
-              />
-              <span
-                className={`slider flex h-6 w-[40px] items-center rounded-full p-1 duration-200 ${
-                  isChecked ? 'bg-[#0f6ca5]' : 'bg-[#7a94a5]'
-                }`}
-              >
+
+{/* ---------------------------------------------- CHECKBOX --------------------------------------------------------------- */}
+          <div className="flex flex-col w-full items-center md:mb-4 md:mt-8 mb-2 mt-4">
+            <div className="w-full flex flex-col items-center">
+              <label className="themeSwitcherTwo flex items-center justify-between relative cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                  className="sr-only"
+                />
                 <span
-                  className={`dot h-4 w-4 rounded-full bg-white duration-200 ${
-                    isChecked ? 'translate-x-[16px]' : ''
+                  className={`slider flex h-6 w-[40px] items-center rounded-full p-1 duration-200 ${
+                    isChecked ? "bg-[#0f6ca5]" : "bg-[#7a94a5]"
                   }`}
-                ></span>
-              </span>
-              <span className="label flex items-center FC-BM font-carving-semi-bold text-base ml-2.5">
-                Se souvenir de moi
+                >
+                  <span
+                    className={`dot h-4 w-4 rounded-full bg-white duration-200 ${
+                      isChecked ? "translate-x-[16px]" : ""
+                    }`}
+                  ></span>
+                </span>
+                <span className="label FC-BM font-carving-semi-bold text-base ml-2">
+                  Se souvenir de moi
+                </span>
+              </label>
+              <span className="label FC-BM font-carving-semi-bold text-base md:mt-8 mt-4 text-[#0f6ca5] cursor-pointer">
+                Mot de passe oublié?
               </span>
             </div>
-          </label>  
-          <span className="label flex items-center FC-BM font-carving-semi-bold text-base sm:ml-16">
-            Mot de passe oublié?
-          </span>
-        </div>        
-{/* ----------------------------------------- BUTTON ----------------------------------------- */}  
+          </div>
+
+{/* ---------------------------------------------- BOUTON CONNECTION --------------------------------------------------------------- */}
           <div className="flex flex-col items-center">
             <button
               type="submit"
-              className="w-81 bg-BM text-white text-base py-2 rounded-lg hover:bg-BL transition duration-200 font-carving-semi-bold">
+              className="w-full bg-BM text-white text-base py-2 rounded-lg hover:bg-BL transition duration-200 font-carving-semi-bold"
+            >
               Connexion
             </button>
           </div>
-          <p className="mt-4 text-center FC-BL font-carving-semi-bold text-base">
-            Pas de compte? Contact <span className="text-[#0f6ca5]">ton responsable</span>
-          </p>
+
+{/* ---------------------------------------------- MESSAGE INSCRIPTION --------------------------------------------------------------- */}
+          <div className="flex flex-col items-center">
+            <p className="text-center FC-BL font-carving-semi-bold mt-2 md:mt-4 text-base">
+              Pas de compte?
+            </p>
+            <p className="mt-1 mb-3 md:mt-2 md:mb-6 text-center FC-BL font-carving-semi-bold text-base">
+              Contact <span className="text-[#0f6ca5]">ton responsable</span>
+            </p>
+          </div>
         </form>
       </div>
     </div>
