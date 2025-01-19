@@ -93,7 +93,7 @@ code {
 }
 
 .burger.open .line-1 {
-  transform: translateY(10px) rotate(45deg);
+  transform: translateY(11px) rotate(45deg);
 }
 
 .burger.open .line-2 {
@@ -101,7 +101,7 @@ code {
 }
 
 .burger.open .line-3 {
-  transform: translateY(-10px) rotate(-45deg);
+  transform: translateY(-11px) rotate(-45deg);
 }
 
 .burger:hover .burger-line {
@@ -118,11 +118,10 @@ code {
 }
 
 .scrollbar-custom {
-  scrollbar-width: thin; /* Pour Firefox */
+  scrollbar-width: thin;
   scrollbar-color: #0f6ca5 transparent;
 }
 
-/* Styles spécifiques pour Webkit (Chrome, Edge, Safari) */
 .scrollbar-custom::-webkit-scrollbar {
   width: 10px;
   height: 10px;
