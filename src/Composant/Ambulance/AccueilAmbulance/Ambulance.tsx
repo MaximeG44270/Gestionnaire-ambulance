@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebaseConfig';
 import "../../../index.css";
@@ -9,6 +10,7 @@ const Ambulance: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [selectedType, setSelectedType] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchAmbulances = async () => {
@@ -102,7 +104,9 @@ const Ambulance: React.FC = () => {
                                 <button className="text-white bg-BM px-2 py-1 md:mr-8 rounded-md text-sm font-carving-bold">
                                     Pharmacie
                                 </button>
-                                <button className="text-white bg-BM px-2 py-1 rounded-md text-sm font-carving-bold">
+                                <button
+                                    className="text-white bg-BM px-2 py-1 rounded-md text-sm font-carving-bold"
+                                    onClick={() => navigate(`/ambulances/${ambulance.id}/desinfection`)}>
                                     Désinfection
                                 </button>
                             </div>

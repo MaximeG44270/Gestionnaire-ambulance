@@ -15,6 +15,8 @@ import VslAll from "./Pages/VslTaxis";
 import AmbulanceAll from "./Pages/Ambulance";
 import AjoutBDD from "./Pages/AjoutBDDProduct";
 import AjoutBDDAmbulance from "./Pages/AjoutBDDAmbulance";
+import Ambulance from "./Composant/Ambulance/AccueilAmbulance/Ambulance";
+import Desinfection from "./Composant/Ambulance/DesinfectionAmbulance/DesinfectionAmbulance";
 
 
 const App: React.FC = () => {
@@ -53,6 +55,7 @@ const App: React.FC = () => {
               </ProtectedRoute>
             }
           />
+          
           <Route
             path="/vsltaxis"
             element={
@@ -117,6 +120,7 @@ const App: React.FC = () => {
               </ProtectedRoute>
             }
           />
+          
           <Route
             path="/ajoutBDDAmbulance"
             element={
@@ -124,6 +128,22 @@ const App: React.FC = () => {
                 <AjoutBDDAmbulance />
               </ProtectedRoute>
             }
+          />
+          <Route 
+            path="/ambulances" 
+            element={
+              <ProtectedRoute>
+                <Ambulance />
+              </ProtectedRoute>
+            } 
+          /> 
+          <Route 
+            path="/ambulances/:id/desinfection" 
+            element={
+              <ProtectedRoute>
+                <Desinfection />
+              </ProtectedRoute>
+            } 
           />
         </Routes>
       </Router>
